@@ -57,17 +57,6 @@
                </f:facet>
            </p:cellEditor>
        </p:column>
-       
-       <p:column headerText="Ações">
-           <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{usuario.senha}" /></f:facet>
-               <f:facet name="input">
-                   <h:selectOneMenu value="#{usuario.senha}" style="width:100%">
-                       <f:selectItems value="#{dtEditView.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
-                   </h:selectOneMenu>
-               </f:facet>
-           </p:cellEditor>
-       </p:column>
  
        <p:column style="width:32px">
            <p:rowEditor />
