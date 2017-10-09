@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<meta charset="UTF-8"></meta>
+	<title>exemplo</title>
+</h:head>
+<h:body>
+
+<h:form id="form">
+  
+  <p:growl id="msgs" showDetail="true"/>
+ 
+   <p:dataTable id="cars1" var="car" value="#{dtEditView.cars1}" editable="true" style="margin-bottom:20px">
+       <f:facet name="header">
+           Lista de Usuários
+       </f:facet>
+ 
+       <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":form:msgs" />
+       <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs" />
+ 
+       <p:column headerText="Id">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{usuario.id}" /></f:facet>
+               <f:facet name="input"><p:inputText id="modelInput" value="#{usuario.id}" style="width:100%"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Nome">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{usuario.nome}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{usuario.nome}" style="width:100%" label="Nome"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Email">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{usuario.email}" /></f:facet>
+               <f:facet name="input">
+                   <h:selectOneMenu value="#{usuario.email}" style="width:100%">
+                       <f:selectItems value="#{dtEditView.brands}" var="man" itemLabel="#{man}" itemValue="#{man}" />
+                   </h:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Senha">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{usuario.senha}" /></f:facet>
+               <f:facet name="input">
+                   <h:selectOneMenu value="#{usuario.senha}" style="width:100%">
+                       <f:selectItems value="#{dtEditView.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
+                   </h:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+       
+       <p:column headerText="Ações">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{usuario.senha}" /></f:facet>
+               <f:facet name="input">
+                   <h:selectOneMenu value="#{usuario.senha}" style="width:100%">
+                       <f:selectItems value="#{dtEditView.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
+                   </h:selectOneMenu>
+               </f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column style="width:32px">
+           <p:rowEditor />
+       </p:column>
+   </p:dataTable>
+ 
+</h:form>
+	
+</h:body>
+</html>
