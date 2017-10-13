@@ -17,58 +17,53 @@
 		type="text/css"></link>
 </h:head>
 
+
 <h:body>
-	<nav class="navbar navbar-expand-md bg-secondary navbar-dark">
+	<nav class="navbar navbar-light" style="background-color: #841818;">
+
 		<div class="container">
-			<a class="navbar-brand" href="#"> <img
-				src="C:\Users\Brenda\Downloads\home1.png" width="200" height="100"
-				class="d-inline-block align-top" alt="" /></a>
+
+			<form class="form-inline">
+				<input class="form-control mr-sm-2" type="text" placeholder="Pesquisar"
+					aria-label="Search" />
+				<button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Pesquisar</button>
+			</form>
+
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<form class="form-inline m-0">
-					<input class="form-control mr-2" type="text" placeholder="Search"></input>
-					<button class="btn btn-primary" type="submit">Search</button>
-				</form>
-				<a
-					class="btn btn-default navbar-btn text-white btn-primary text-right"><i
-					class="fa fa-fw fa-pencil-square-o"></i>Ferramentas</a> <a
-					class="btn btn-default navbar-btn text-white btn-primary"><i
-					class="fa fa-fw fa-envelope-o"></i>Notificações</a> <a
-					class="btn btn-default navbar-btn btn-primary text-white"><i
-					class="fa fa-user fa-fw"></i>Usuário</a>
-			</div>
+
+			<!-- 	<ul class="nav justify-content-end">
+				<li class="nav-item"><a class="nav-link active" href="#">Active</a>
+				</li>
+			</ul>
+ -->
 		</div>
+
 	</nav>
-	<div class="py-5 text-center opaque-overlay"
-		style="background-image: url('C:\Users\Brenda\Downloads\home1.png')">
-		<div class="container py-5">
-			<div class="row">
-				<div class="col-md-12 text-white">
-					<h1 class="display-3 mb-4">BIBLIOTECA EMPRESARIAL</h1>
-					
-				</div>
-			</div>
-		</div>
+
+
+	<div class="py-1 text-center opaque-overlay">
+		<h:graphicImage library="images" name="home1.png" />
 	</div>
-	<div class="py-5">
+	<div class="py-1">
 		<div class="container">
 			<div class="row">
+				<div class="col-1" />
 				<div class="col-md-3">
-					<a class="btn btn-primary" href="">Computação</a>
+					<a href="#" class="btn btn-outline-danger">Computação</a>
 				</div>
 				<div class="col-md-3">
-					<a class="btn btn-primary" href="">Administração</a>
+					<button type="button" class="btn btn-outline-danger">Administração</button>
 				</div>
 				<div class="col-md-3">
-					<a class="btn btn-primary" href="">Variados</a>
+					<button type="button" class="btn btn-outline-danger">Diversos</button>
 				</div>
-				<div class="col-md-3">
-					<a class="btn btn-primary" href="">Todos</a>
+				<div>
+					<button type="button" class="btn btn-outline-danger">Todos</button>
 				</div>
 			</div>
 		</div>

@@ -3,8 +3,8 @@
 
 // Semantic color scheme
 $theme-colors: (
-  primary: #585858,
-  secondary: #841818,
+  primary: #28a745,
+  secondary: #28a745,
   success: #28a745,
   info: #00fbff,
   warning: #ffc107,
@@ -59,6 +59,7 @@ $border-radius: .25rem;
 
 body > * {
   background-size: cover;
+  
 }
 
 .opaque-overlay {
