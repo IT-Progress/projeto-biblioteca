@@ -1,0 +1,9 @@
+@charset "ISO-8859-1";
+
+.red {
+	background-color: red;
+}
+
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td {
+    border-style: none;
+}
