@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org /1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="UTF-8"> </meta>
+	<title>exemplo</title>
+	<h:outputStylesheet name="bootstrap.min.css" library="css"
+		type="text/css" />
+</h:head>
+<ui:composition template="template.xhtml">
+<h:body>
+	<div class="col-md-12 text-center form-group">
+	<h1>Cadastro de livro</h1>
+	
+	
+	
+	
+	 <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h:form class="">
+            <div class="form-group"> <label>Nome do Livro</label>
+              <h:inputText name="nomeLivro" class="form-control" value="#{livroBean.livro.nome}"/> </div>
+            <div class="form-group"> <label>Nome do autor</label>
+              <h:inputText name="nomeAutor" class="form-control" value="#{livroBean.livro.autor}"/> </div>
+            <h:commandButton class="btn btn-primary" value="Salvar" action="#{livroBean.salvar}" />
+          </h:form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	<h:outputScript name="bootstrap.min.js" library="js" async="true"
+		type="application/javascript" />
+</h:body>
+</ui:composition>
+</html>

@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org /1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta charset="UTF-8"> </meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"></link>
+ 	<link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css" type="text/css"> </link>
+ 	<link rel="stylesheet" href="css/loginCSS.css" type="text/css"></link>
+ 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"/>
+ 	<link href="https://fonts.googleapis.com/css?family=Orbitron|Roboto" rel="stylesheet"/>
+	<title>IT-PROGRESS</title>
+	<h:outputStylesheet name="bootstrap.min.css" library="css"
+		type="text/css" />
+	<style>
+		body{
+			background-image: url("#{resource['image:fundoBiblioteca2.jpg']}");
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+		
+		formularioLogin{
+			backgroud:rgba(0,0,0,0.15);
+		}
+		
+		logoDB1{
+			width: 40%;
+   			
+		}
+	</style>
+		
+</h:head>
+
+<h:body>
+
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"> </div>
+        <div class="col-md-6">
+          <div class="card text-white p-4 " style="background-color:rgba(127, 8, 10, 0.85)">
+            <div class="card-body">
+             <h:graphicImage library="image" name="db1Logo.png" class="logoDB1"/>
+              <h1 class="mb-4 text-center" style="font-family: 'Orbitron', sans-serif;">Biblioteca</h1>
+              <h:form class="formularioLogin">
+                <div class="form-group text-center"> <label style="font-family: 'Roboto', sans-serif;">Usuário:</label>
+                  <h:inputText class="form-control" value="#{autenticacaoBean.usuario}"/>
+                </div>
+                <div class="form-group text-center"> <label style="font-family: 'Roboto', sans-serif;">Senha:</label> 
+                  <h:inputSecret class="form-control" value="#{autenticacaoBean.senha}"/>
+                </div>
+                <div class="form-group text-center"> <label></label> 
+                	<h:selectOneMenu class="combobox"> 
+           		 		<f:selectItem itemValue = "1" itemLabel = "Administrador" /> 
+            			<f:selectItem itemValue = "2" itemLabel = "Usuário" />  
+         			</h:selectOneMenu>
+                </div>
+                
+                <div class="text-center">
+                <h:commandButton value="Entrar" class="btn btn-light"
+					action="#{autenticacaoBean.autentica}" />
+				</div>	
+              </h:form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>  
+  <h:outputScript name="bootstrap.min.js" library="js" async="true"
+		type="application/javascript" />
+</h:body>
+</html>
