@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org /1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta charset="UTF-8"></meta>
+	<title>exemplo</title>
+	<h:outputStylesheet name="bootstrap.min.css" library="css"
+		type="text/css" />
+	<h:outputStylesheet name="font-awesome.min.css" library="css"
+		type="text/css" />
+</h:head>
+
+<h:body>
+<nav class="navbar navbar-expand-md navbar-dark bg-danger sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><b>Biblios</b></a>
+      <form class="form-inline my-2 my-lg-0 w-100">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" /> </form>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#"><i class="fa d-inline fa-lg fa-bookmark-o text-white"></i>
+              <br /> </a>
+          </li>
+        </ul>
+        <a class="btn navbar-btn ml-2 text-white btn-danger"><i class="fa d-inline fa-lg fa-user-circle-o"></i>RH</a>
+      </div>
+    </div>
+  </nav>
+	<div class="py-5">
+	<div class="container">
+	<h:dataTable value="#{usuarioBean.list}" var="usuario" class="table table-bordered">
+
+		<h:column>
+			<f:facet name="header">ID</f:facet>#{usuario.id}
+   		</h:column>
+
+		<h:column>
+			<f:facet name="header">Nome</f:facet>#{usuario.nome}
+   		</h:column>
+
+		<h:column>
+			<f:facet name="header">Email</f:facet>#{usuario.email}
+  		</h:column>
+
+		<h:column>
+			<f:facet name="header">Senha</f:facet>#{usuario.senha}
+   		</h:column>
+   		
+   		<h:column>
+   			<f:facet name="header">Ação</f:facet>
+			<h:commandButton value="Editar" action="#{usuarioBean.editar()}" class="btn btn-primary" />
+			<h:commandButton value="Remover" action="#{usuarioBean.remover(usuario)}" class="btn btn-danger" />
+   		</h:column>
+	</h:dataTable>
+	</div>
+	</div>
+	
+	
+	<h:outputScript name="jquery.min.js" library="js" async="true"
+		type="application/javascript" />
+	<h:outputScript name="bootstrap.min.js" library="js" async="true"
+		type="application/javascript" />
+</h:body>
+</html>
