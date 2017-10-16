@@ -25,7 +25,7 @@ public class AutenticacaoBean {
 			HttpSession session = (HttpSession) ec.getSession(false);
 			session.setAttribute("usuario", this.usuario);
 
-			return "/logado/home";
+			return "/logado/home2";
 		} else {
 			FacesMessage fm = new FacesMessage("usuário e/ou senha inválidos");
 			fm.setSeverity(FacesMessage.SEVERITY_ERROR);

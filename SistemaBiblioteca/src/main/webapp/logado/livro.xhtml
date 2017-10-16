@@ -11,19 +11,22 @@
 </h:head>
 <ui:composition template="template.xhtml">
 <h:body>
-
+	<br></br>
+	
 	<div class="text-center">
   	<h:form>
   	<div class="col-md-12 text-center">
 		<div class="container">
-			<div class="row">
-				<h:outputLabel value="Pesquisar" />
-				<h:inputText id="nomeLivroFiltrada" value="#{livroBean.nomeLivroFiltrada}" />
+			<div class="row form-inline">
+				<h:outputLabel value="Pesquisar: " />&#160;
+				<h:inputText class="form-control" id="nomeLivroFiltrada" value="#{livroBean.nomeLivroFiltrada}" />
+				&#160;
 				<h:commandButton class="btn btn-primary" value="Filtrar"
 					action="#{livroBean.listarLivro}"/>
 			</div>
+			<br></br>
 			<div class="row">
-				<h:dataTable class="table" value="#{livroBean.list}" var="item"
+				<h:dataTable class="table-bordered col-md-12" value="#{livroBean.list}" var="item"
 					rendered="#{not empty livroBean.list}">
 					<h:column>
 						<f:facet name="header">ID</f:facet>#{item.id}</h:column>
@@ -33,14 +36,32 @@
 						<f:facet name="header">Autor</f:facet>#{item.autor}</h:column>
 						<h:column>
 						<f:facet name="header">Editar</f:facet>
-						<h:commandButton class="btn btn-info" value="Editar" action="#{livroBean.editar}" />
+						<h:commandLink class="btn btn-info" value="" action="#{livroBean.editar}"><i class="fa fa-pencil"></i></h:commandLink>
 						</h:column>
 						<h:column>
 						<f:facet name="header">Remover</f:facet>
-						<h:commandButton class="btn btn-danger" value="Remover" action="#{livroBean.remover(item)}" update="livro" />
+						<h:commandLink class="btn btn-danger" value="" action="#{livroBean.remover(item)}" update="livro"><i class="fa fa-trash"></i></h:commandLink>
 						</h:column>
+						
+						
+						 <button type="button" class="btn btn-default btn-sm">
+          					<span class="fa d-inline fa-lg fa-bookmark-o"></span> Trash 
+        				</button>
+        				<li class="nav-item">
+            				<a class="nav-link" href="#"><i class="fa d-inline fa-lg fa-bookmark-o"></i> </a>
+          				</li>
+          				
+          				<h:commandLink id="btnsearch"
+						    	action="search.xhtml"
+						    	styleClass="btn btn-default">
+						   		 <i class="icon-search"></i> Search
+						</h:commandLink>
+          				
+          				
+                
 				</h:dataTable>
 			</div>
+			<br></br>
 			<div class="row">
 				<h:commandButton class="btn btn-success" value="Adicionar" action="cadastrarLivro" />
 			</div>
