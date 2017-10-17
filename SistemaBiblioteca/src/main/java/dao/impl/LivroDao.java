@@ -9,7 +9,6 @@ import javax.persistence.Query;
 import dao.DAO;
 import dao.Transactional;
 import model.Livro;
-import model.Uf;
 
 public class LivroDao implements DAO<Livro>{
 

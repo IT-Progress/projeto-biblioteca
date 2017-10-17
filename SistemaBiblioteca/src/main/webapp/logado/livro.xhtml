@@ -29,7 +29,7 @@
 				<h:dataTable class="table-bordered col-md-12" value="#{livroBean.list}" var="item"
 					rendered="#{not empty livroBean.list}">
 					<h:column>
-						<f:facet name="header">ID</f:facet>#{item.id}</h:column>
+						<f:facet name="header">#</f:facet>#{item.id}</h:column>
 					<h:column>
 						<f:facet name="header">Nome</f:facet>#{item.nome}</h:column>
 						<h:column>
@@ -41,6 +41,14 @@
 						<h:commandLink class="btn btn-info" value="" action="#{livroBean.editar(item)}"><i class="fa fa-pencil"></i></h:commandLink>
 						</h:column>
 						<h:column>
+						<f:facet name="header">Imagem</f:facet>
+						<h:commandLink class="btn btn-warning" value=""  update="livro"><i class="fa fa-upload"></i></h:commandLink>
+						</h:column>
+						<h:column>
+						<f:facet name="header">Visualizar</f:facet>
+						<h:commandLink class="btn btn-primary" value="" action="#{livroBean.visualizar(item)}" update="livro"><i class="fa fa-eye"></i></h:commandLink>
+						</h:column>
+						<h:column>
 						<f:facet name="header">Remover</f:facet>
 						<h:commandLink class="btn btn-danger" value="" action="#{livroBean.remover(item)}" update="livro"><i class="fa fa-trash"></i></h:commandLink>
 						</h:column>
@@ -49,7 +57,7 @@
 			</div>
 			<br></br>
 			<div class="row">
-				<h:commandButton class="btn btn-success" value="Adicionar" action="#{livroBean.novo}" />
+				<h:commandLink class="btn btn-success" value="Adicionar " action="#{livroBean.novo}"><i class="fa fa-book"></i></h:commandLink>
 			</div>
 		</div>
 	</div>

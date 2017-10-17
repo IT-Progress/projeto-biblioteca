@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
-import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,7 +14,7 @@ import javax.inject.Named;
 import dao.impl.UsuarioDao;
 import model.Usuario;
 
-@RequestScoped
+@ApplicationScoped
 @Named
 public class UsuarioBean {
 	@Inject
@@ -25,12 +25,16 @@ public class UsuarioBean {
 	private String nomeUsuarioFiltrado;
 
 	private Usuario usuario;
-	
+
 	@PostConstruct
 	public void init() {
 		list = new ArrayList<Usuario>();
 	}
-		
+
+	private void zerarLista() {
+		list = new ArrayList<Usuario>();
+	}
+
 	public String getNomeUsuarioFiltrado() {
 		return nomeUsuarioFiltrado;
 	}
@@ -55,28 +59,41 @@ public class UsuarioBean {
 		this.usuario = usuario;
 	}
 	
-	public void salvar() {
-		if (!dao.save(usuario)) {
-			adicionarMensagem("Erro ao cadastrar o Usuário.", FacesMessage.SEVERITY_ERROR);
-		}
-
-		adicionarMensagem("Usuário salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-	}
-
-	public String editar() {
-		usuario = dao.findById(1L);
+	public String novo() {
+		usuario = new Usuario();
 		return "cadastrarUsuario";
 	}
 
-	public void remover(Usuario usuario) {
+	public String salvar() {
+		if (!dao.save(usuario)) {
+			adicionarMensagem("Erro ao cadastrar o Usuário.", FacesMessage.SEVERITY_ERROR);
+		}else {
+
+		adicionarMensagem("Usuário salvo com sucesso.", FacesMessage.SEVERITY_INFO);
+		nomeUsuarioFiltrado = this.usuario.getNome();
+		listarUsuario();
+		}
+		return "usuario";
+	}
+
+	public String editar(Usuario usuario) {
+		this.usuario = dao.findById(usuario.getId());
+		return "cadastrarUsuario";
+	}
+
+	public String remover(Usuario usuario) {
 		if (!dao.delete(usuario.getId())) {
 			adicionarMensagem("Erro ao remover o Usuário.", FacesMessage.SEVERITY_ERROR);
-		}
+		} else {
 
-		adicionarMensagem("Usuário removido com sucesso.", FacesMessage.SEVERITY_INFO);
+			adicionarMensagem("Usuário removido com sucesso.", FacesMessage.SEVERITY_INFO);
+			listarUsuario();
+		}
+		return "usuario";
 	}
 
 	public void listarUsuario() {
+		zerarLista();
 		if (!nomeUsuarioFiltrado.isEmpty()) {
 			list.addAll(dao.findByName(nomeUsuarioFiltrado));
 		} else {
@@ -91,5 +108,5 @@ public class UsuarioBean {
 		fc.addMessage(null, fm);
 
 	}
-	
+
 }

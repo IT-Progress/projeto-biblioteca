@@ -26,14 +26,18 @@ public class UsuarioDao implements DAO<Usuario> {
 
 	public List<Usuario> findByName(String nome) {
 		Query query = manager.createQuery("Select u from Usuario u where u.nome like :pNome");
-		query.setParameter("pNome", "%"+nome+"%");
+		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}
 
 	@Transactional
 	public boolean save(Usuario usuario) {
 		try {
-			manager.persist(usuario);
+			if (usuario.getId() != null) {
+				manager.merge(usuario);
+			} else {
+				manager.merge(usuario);
+			}
 		} catch (Exception e) {
 			return false;
 		}

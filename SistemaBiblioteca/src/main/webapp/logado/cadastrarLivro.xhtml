@@ -22,17 +22,23 @@
         <div class="col-md-12">
           <h:form class="">
             <div class="form-group"> <label>Nome do Livro</label>
-              <h:inputText id="campoNomeLivro" name="nomeLivro" class="form-control" value="#{livroBean.livro.nome}" required="true"/> 
+              <h:inputText id="campoNomeLivro" name="nomeLivro" class="form-control" value="#{livroBean.livro.nome}" required="true" label="Nome do Livro"/> 
               <h:message for="campoNomeLivro" style="color:red" />
             </div>
             <div class="form-group"> <label>Nome do autor</label>
-              <h:inputText id="campoNomeAutor" name="nomeAutor" class="form-control" value="#{livroBean.livro.autor}" required="true"/>
+              <h:inputText id="campoNomeAutor" name="nomeAutor" class="form-control" value="#{livroBean.livro.autor}" required="true" label="Nome do Autor"/>
               <h:message for="campoNomeAutor" style="color:red" /> 
             </div>
-               <div class="form-group"> <label>Categoria</label>
-              <h:inputText id="campoCategoria" name="categoriaLivro" class="form-control" value="#{livroBean.livro.categoria}" required="true"/>
-              <h:message for="campoCategoria" style="color:red" /> 
-            </div>
+               
+            <div class="form-group"> <label>Categoria </label><br></br>
+            <h:selectOneMenu value="#{livroBean.livro.categoria}" id="campo-categoria"
+					requiredMessage="Categoria obrigatoria" label="Categoria" required="true">
+					<f:selectItem itemValue="" itemLabel="Selecione uma Categoria" />
+					<f:selectItems value="#{livroBean.categorias}" var="c"
+						itemLabel="#{c.categoria}" itemValue="#{c}"  />
+				</h:selectOneMenu>
+			</div>
+			
             <h:commandButton class="btn btn-primary" value="Salvar" action="#{livroBean.salvar}" />
           </h:form>
         </div>

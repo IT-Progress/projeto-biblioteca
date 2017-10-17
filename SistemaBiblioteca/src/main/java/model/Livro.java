@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +26,8 @@ public class Livro implements Serializable{
 	private String autor;
 	
 	@Column
-	private String categoria;
+	@Enumerated(EnumType.STRING)
+	private CategoriaLivro categoria;
 
 	public Long getId() {
 		return id;
@@ -50,11 +53,11 @@ public class Livro implements Serializable{
 		this.autor = autor;
 	}
 
-	public String getCategoria() {
+	public CategoriaLivro getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(CategoriaLivro categoria) {
 		this.categoria = categoria;
 	}
 

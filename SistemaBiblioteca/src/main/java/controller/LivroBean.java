@@ -29,6 +29,10 @@ public class LivroBean {
 
 	private Livro livro;
 
+	public CategoriaLivro[] getCategorias() {
+		return CategoriaLivro.values();
+	}
+	
 	@PostConstruct
 	public void init() {
 		list = new ArrayList<Livro>();
@@ -78,6 +82,11 @@ public class LivroBean {
 	public String editar(Livro livro) {
 		this.livro = dao.findById(livro.getId());
 		return "cadastrarLivro";
+	}
+
+	public String visualizar(Livro livro) {
+		this.livro = dao.findById(livro.getId());
+		return "exibirLivro";
 	}
 
 	public String remover(Livro livro) {
