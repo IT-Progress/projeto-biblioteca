@@ -22,9 +22,17 @@
         <div class="col-md-12">
           <h:form class="">
             <div class="form-group"> <label>Nome do Livro</label>
-              <h:inputText name="nomeLivro" class="form-control" value="#{livroBean.livro.nome}"/> </div>
+              <h:inputText id="campoNomeLivro" name="nomeLivro" class="form-control" value="#{livroBean.livro.nome}" required="true"/> 
+              <h:message for="campoNomeLivro" style="color:red" />
+            </div>
             <div class="form-group"> <label>Nome do autor</label>
-              <h:inputText name="nomeAutor" class="form-control" value="#{livroBean.livro.autor}"/> </div>
+              <h:inputText id="campoNomeAutor" name="nomeAutor" class="form-control" value="#{livroBean.livro.autor}" required="true"/>
+              <h:message for="campoNomeAutor" style="color:red" /> 
+            </div>
+               <div class="form-group"> <label>Categoria</label>
+              <h:inputText id="campoCategoria" name="categoriaLivro" class="form-control" value="#{livroBean.livro.categoria}" required="true"/>
+              <h:message for="campoCategoria" style="color:red" /> 
+            </div>
             <h:commandButton class="btn btn-primary" value="Salvar" action="#{livroBean.salvar}" />
           </h:form>
         </div>

@@ -41,13 +41,18 @@ public class LivroDao implements DAO<Livro>{
 	@Transactional
 	public boolean save(Livro livro) {
 		try {
-			manager.persist(livro);
+			if (livro.getId() != null) {
+				manager.merge(livro);
+			} else {
+				manager.persist(livro);
+			}
 		} catch (Exception e) {
 			return false;
 		}
 		return true;
 	}
 
+	@Transactional
 	public boolean delete(Long id) {
 		Livro livro = findById(id);
 		try {
