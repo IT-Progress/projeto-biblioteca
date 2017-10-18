@@ -19,7 +19,7 @@ public class Livro implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false)
+	@Column(name = "titulo",nullable = false)
 	private String nome;
 	
 	@Column
@@ -28,6 +28,13 @@ public class Livro implements Serializable{
 	@Column
 	@Enumerated(EnumType.STRING)
 	private CategoriaLivro categoria;
+	
+	@Column
+	private String tag;
+	
+	@Column
+	@Enumerated(EnumType.STRING)
+	private SituacaoLivro situacao;
 
 	public Long getId() {
 		return id;
@@ -59,6 +66,22 @@ public class Livro implements Serializable{
 
 	public void setCategoria(CategoriaLivro categoria) {
 		this.categoria = categoria;
+	}
+
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+	
+	public SituacaoLivro getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(SituacaoLivro situacao) {
+		this.situacao = situacao;
 	}
 
 	@Override

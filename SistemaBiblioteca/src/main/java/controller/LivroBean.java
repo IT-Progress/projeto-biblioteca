@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,8 @@ import javax.inject.Named;
 import dao.impl.LivroDao;
 import model.CategoriaLivro;
 import model.Livro;
+import model.SituacaoLivro;
+import model.Upload;
 
 @ApplicationScoped
 @Named
@@ -31,6 +34,10 @@ public class LivroBean {
 
 	public CategoriaLivro[] getCategorias() {
 		return CategoriaLivro.values();
+	}
+
+	public SituacaoLivro[] getSituacoesLivro() {
+		return SituacaoLivro.values();
 	}
 	
 	@PostConstruct
@@ -61,7 +68,7 @@ public class LivroBean {
 	public List<Livro> getList() {
 		return list;
 	}
-	
+
 	public String novo() {
 		livro = new Livro();
 		return "cadastrarLivro";
@@ -92,10 +99,10 @@ public class LivroBean {
 	public String remover(Livro livro) {
 		if (!dao.delete(livro.getId())) {
 			adicionarMensagem("Erro ao remover o Livro.", FacesMessage.SEVERITY_ERROR);
-		}else {
+		} else {
 
-		adicionarMensagem("Livro removido com sucesso.", FacesMessage.SEVERITY_INFO);
-		listarLivro();
+			adicionarMensagem("Livro removido com sucesso.", FacesMessage.SEVERITY_INFO);
+			listarLivro();
 		}
 		return "livro";
 	}
@@ -116,4 +123,5 @@ public class LivroBean {
 		fc.addMessage(null, fm);
 
 	}
+
 }

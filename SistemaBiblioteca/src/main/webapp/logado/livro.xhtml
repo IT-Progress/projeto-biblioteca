@@ -1,7 +1,8 @@
 <html xmlns="http://www.w3.org /1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="UTF-8"> </meta>
 	<title>exemplo</title>
@@ -14,6 +15,7 @@
 	<br></br>
 	
 	<div class="text-center">
+	<h1>Lista de livros</h1>
   	<h:form>
   	<div class="col-md-12 text-center">
 		<div class="container">
@@ -24,6 +26,8 @@
 				<h:commandButton class="btn btn-primary" value="Filtrar"
 					action="#{livroBean.listarLivro}"/>
 			</div>
+			
+			
 			<br></br>
 			<div class="row">
 				<h:dataTable class="table-bordered col-md-12" value="#{livroBean.list}" var="item"
@@ -36,6 +40,10 @@
 						<f:facet name="header">Autor</f:facet>#{item.autor}</h:column>
 						<h:column>
 						<f:facet name="header">Categoria</f:facet>#{item.categoria}</h:column>
+						<h:column>
+						<f:facet name="header">TAG</f:facet>#{item.tag}</h:column>
+						<h:column>
+						<f:facet name="header">Status</f:facet>#{item.situacao}</h:column>
 						<h:column>
 						<f:facet name="header">Editar</f:facet>
 						<h:commandLink class="btn btn-info" value="" action="#{livroBean.editar(item)}"><i class="fa fa-pencil"></i></h:commandLink>
@@ -50,7 +58,7 @@
 						</h:column>
 						<h:column>
 						<f:facet name="header">Remover</f:facet>
-						<h:commandLink class="btn btn-danger" value="" action="#{livroBean.remover(item)}" update="livro"><i class="fa fa-trash"></i></h:commandLink>
+						<h:commandLink class="btn btn-danger" value="" action="#{livroBean.remover(item)}" update="livro"><i class="fa fa-trash" onclick="confirm('Deseja excluir?');"></i></h:commandLink>
 						</h:column>
 				
 				</h:dataTable>
@@ -63,6 +71,9 @@
 	</div>
 	</h:form>
   	</div>
+  	
+
+  	
   	
 	<h:outputScript name="bootstrap.min.js" library="js" async="true"
 		type="application/javascript" />

@@ -3,9 +3,9 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  
-  <servlet>
+	<display-name>Archetype Created Web Application</display-name>
+
+	<servlet>
 		<servlet-name>FacesServlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
@@ -34,7 +34,7 @@
 
 	<!-- By default go to secured welcome page -->
 	<welcome-file-list>
-		<welcome-file>login.xhtml</welcome-file>
+		<welcome-file>login3.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<listener>
@@ -47,4 +47,10 @@
 			javax.enterprise.inject.spi.BeanManager
 		</resource-env-ref-type>
 	</resource-env-ref>
+
+
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>none</param-value>
+	</context-param>
 </web-app>

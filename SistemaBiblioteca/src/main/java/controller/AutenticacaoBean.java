@@ -30,7 +30,7 @@ public class AutenticacaoBean {
 			FacesMessage fm = new FacesMessage("usuário e/ou senha inválidos");
 			fm.setSeverity(FacesMessage.SEVERITY_ERROR);
 			fc.addMessage(null, fm);
-			return "/login";
+			return "/login3";
 		}
 	}
 
@@ -40,7 +40,7 @@ public class AutenticacaoBean {
 		HttpSession session = (HttpSession) ec.getSession(false);
 		session.removeAttribute("usuario");
 
-		return "/login";
+		return "/login3";
 	}
 
 	public String getUsuario() {

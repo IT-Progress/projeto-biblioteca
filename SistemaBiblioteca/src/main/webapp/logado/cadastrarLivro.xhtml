@@ -39,6 +39,20 @@
 				</h:selectOneMenu>
 			</div>
 			
+			 <div class="form-group"> <label>TAG(Subcategoria)</label>
+              <h:inputText id="campoTag" name="nomeTag" class="form-control" value="#{livroBean.livro.tag}" required="false" label="TAG"/>
+              <h:message for="campoTag" style="color:red" /> 
+            </div>
+            
+            <div class="form-group"> <label>Situação </label><br></br>
+            <h:selectOneMenu value="#{livroBean.livro.situacao}" id="campo-situacao"
+					requiredMessage="Categoria obrigatoria" label="Situação" required="true">
+					<f:selectItem itemValue="" itemLabel="Selecione uma Situação" />
+					<f:selectItems value="#{livroBean.situacoesLivro}" var="s"
+						itemLabel="#{s.situacaoLivros}" itemValue="#{s}" />
+				</h:selectOneMenu>
+			</div>
+			
             <h:commandButton class="btn btn-primary" value="Salvar" action="#{livroBean.salvar}" />
           </h:form>
         </div>

@@ -76,6 +76,19 @@ public class UsuarioBean {
 		return "usuario";
 	}
 
+	public String salvarLogin() {
+		usuario = new Usuario();
+		if (!dao.save(usuario)) {
+			adicionarMensagem("Erro ao cadastrar o Usuário.", FacesMessage.SEVERITY_ERROR);
+		}else {
+
+		adicionarMensagem("Usuário salvo com sucesso.", FacesMessage.SEVERITY_INFO);
+		nomeUsuarioFiltrado = this.usuario.getNome();
+		listarUsuario();
+		}
+		return "login3";
+	}
+	
 	public String editar(Usuario usuario) {
 		this.usuario = dao.findById(usuario.getId());
 		return "cadastrarUsuario";
