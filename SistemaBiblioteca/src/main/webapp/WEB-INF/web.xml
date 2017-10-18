@@ -34,7 +34,7 @@
 
 	<!-- By default go to secured welcome page -->
 	<welcome-file-list>
-		<welcome-file>login3.xhtml</welcome-file>
+		<welcome-file>login.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<listener>

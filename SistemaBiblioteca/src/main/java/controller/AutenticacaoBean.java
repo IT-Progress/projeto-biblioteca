@@ -19,18 +19,27 @@ public class AutenticacaoBean {
 	public String autentica() {
 		FacesContext fc = FacesContext.getCurrentInstance();
 
-		if (USUARIO_CORRETO.equals(this.usuario) && SENHA_CORRETA.equals(this.senha) || USUARIO_CORRETO2.equals(this.usuario) && SENHA_CORRETA2.equals(this.senha)) {
+		if (USUARIO_CORRETO.equals(this.usuario) && SENHA_CORRETA.equals(this.senha)) {
 
 			ExternalContext ec = fc.getExternalContext();
 			HttpSession session = (HttpSession) ec.getSession(false);
 			session.setAttribute("usuario", this.usuario);
 
-			return "/logado/home2";
-		} else {
+			return "/logadoADM/home";
+		}
+		
+		if(USUARIO_CORRETO2.equals(this.usuario) && SENHA_CORRETA2.equals(this.senha)) {
+			ExternalContext ec = fc.getExternalContext();
+			HttpSession session = (HttpSession) ec.getSession(false);
+			session.setAttribute("usuario", this.usuario);			
+			return "/logadoUsuario/home";
+		}
+		
+		else {
 			FacesMessage fm = new FacesMessage("usuário e/ou senha inválidos");
 			fm.setSeverity(FacesMessage.SEVERITY_ERROR);
 			fc.addMessage(null, fm);
-			return "/login3";
+			return "/login";
 		}
 	}
 
@@ -40,7 +49,7 @@ public class AutenticacaoBean {
 		HttpSession session = (HttpSession) ec.getSession(false);
 		session.removeAttribute("usuario");
 
-		return "/login3";
+		return "/login";
 	}
 
 	public String getUsuario() {
