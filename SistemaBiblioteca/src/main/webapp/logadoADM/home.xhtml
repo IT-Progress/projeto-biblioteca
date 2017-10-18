@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org /1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet name="bootstrap.min.css" library="css"
+		type="text/css" />
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		type="text/css"></link>
+	<link rel="stylesheet"
+		href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-beta.1.css"
+		type="text/css"></link>
+</h:head>
+
+<ui:composition template="template.xhtml">
+<h:body>
+	
+
+
+	<div class="py-1 text-center opaque-overlay">
+		<h:graphicImage library="image" name="home1.png" />
+	</div>
+	<div class="py-1">
+		<div class="container">
+			<div class="row">
+				<div class="col-1" />
+				<div class="col-md-3">
+					<a href="#" class="btn btn-outline-danger">Computação</a>
+				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-outline-danger">Administração</button>
+				</div>
+				<div class="col-md-3">
+					<button type="button" class="btn btn-outline-danger">Diversos</button>
+				</div>
+				<div>
+					<button type="button" class="btn btn-outline-danger">Todos</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h:outputScript name="bootstrap.min.js" library="js" async="true"
+		type="application/javascript" />
+</h:body>
+</ui:composition>
+</html>

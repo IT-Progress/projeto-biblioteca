@@ -1,0 +1,11 @@
+html { 
+   background: url(image/bg.jpg) no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+}
+
+corLogin{
+	background-color: #7f080a;
+}

@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org /1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="UTF-8"> </meta>
+	<title>exemplo</title>
+	<h:outputStylesheet name="bootstrap.min.css" library="css"
+		type="text/css" />
+</h:head>
+<ui:composition template="template.xhtml">
+<h:body>
+	<div class="col-md-12 text-center form-group">
+	<h1>Cadastro de livro</h1>
+	
+	
+	
+	
+	 <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h:form class="">
+            <div class="form-group"> <label>Nome do Livro</label>
+              <h:inputText id="campoNomeLivro" name="nomeLivro" class="form-control" value="#{livroBean.livro.nome}" required="true" label="Nome do Livro"/> 
+              <h:message for="campoNomeLivro" style="color:red" />
+            </div>
+            <div class="form-group"> <label>Nome do autor</label>
+              <h:inputText id="campoNomeAutor" name="nomeAutor" class="form-control" value="#{livroBean.livro.autor}" required="true" label="Nome do Autor"/>
+              <h:message for="campoNomeAutor" style="color:red" /> 
+            </div>
+               
+            <div class="form-group"> <label>Categoria </label><br></br>
+            <h:selectOneMenu value="#{livroBean.livro.categoria}" id="campo-categoria"
+					requiredMessage="Categoria obrigatoria" label="Categoria" required="true">
+					<f:selectItem itemValue="" itemLabel="Selecione uma Categoria" />
+					<f:selectItems value="#{livroBean.categorias}" var="c"
+						itemLabel="#{c.categoria}" itemValue="#{c}"  />
+				</h:selectOneMenu>
+			</div>
+			
+			 <div class="form-group"> <label>TAG(Subcategoria)</label>
+              <h:inputText id="campoTag" name="nomeTag" class="form-control" value="#{livroBean.livro.tag}" required="false" label="TAG"/>
+              <h:message for="campoTag" style="color:red" /> 
+            </div>
+            
+            <div class="form-group"> <label>Situação </label><br></br>
+            <h:selectOneMenu value="#{livroBean.livro.situacao}" id="campo-situacao"
+					requiredMessage="Categoria obrigatoria" label="Situação" required="true">
+					<f:selectItem itemValue="" itemLabel="Selecione uma Situação" />
+					<f:selectItems value="#{livroBean.situacoesLivro}" var="s"
+						itemLabel="#{s.situacaoLivros}" itemValue="#{s}" />
+				</h:selectOneMenu>
+			</div>
+			
+            <h:commandButton class="btn btn-primary" value="Salvar" action="#{livroBean.salvar}" />
+          </h:form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	<h:outputScript name="bootstrap.min.js" library="js" async="true"
+		type="application/javascript" />
+</h:body>
+</ui:composition>
+</html>
