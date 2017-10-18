@@ -26,6 +26,8 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+	background-color: #565656;
+	background-blend-mode: soft-light;
 }
 
 formularioLogin {
@@ -41,81 +43,26 @@ logoDB1 {
 
 <h:body>
 
-<div>
-	<div class="form-group text-center">
-		<div class="py-4"></div>
-		<div>
-			<div class="container">
-				<div  class="px-4">
-					<div class="card text-white"
-						style="background-color: rgba(127, 8, 10, 0.85);  margin: auto">
-						<div class="card-body">
-							<h:graphicImage library="image" name="db1Logo.png"
-								class="logoDB1" />
-							<h1 class="mb-4 text-center"
-								style="font-family: 'Orbitron', sans-serif;">Biblioteca</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+	<div class="py-5"></div>
 
 	<div>
-		<div class="container" style="margin:auto">
+		<div class="container" style="margin: auto">
 			<div class="row">
-				
-				<div style="margin:auto; display:flex;">
-					<div class="px-3">
+				<div style="margin: auto; display: flex;">
+					<div class="py-5; px-5" style="margin-top: 8rem">
+						<h:graphicImage library="image" name="db1Logo.png" class="logoDB1" />
+						<br />
+						<h1 class="mb-4 text-center"
+							style="font-family: 'Orbitron', sans-serif; color:white">Biblioteca</h1>
+					</div>
+
+
 					<div class="card text-white p-3 "
-						style="background-color: rgba(127, 8, 10, 0.85); ">
-						<div class="card-body">
+						style="background-color: rgba(127, 8, 10, 0.85);">
+						<div class="card-body" style="margin-top: 5rem">
 							<h3 class="mb-4 text-center"
 								style="font-family: 'Orbitron', sans-serif;">Login</h3>
 							<h:form class="formularioLogin">
-								<div class="form-group text-center">
-									<label style="font-family: 'Roboto', sans-serif;">Usuário:</label>
-									<h:inputText class="form-control"
-										value="#{autenticacaoBean.usuario}" />
-								</div>
-								<div class="form-group text-center">
-									<label style="font-family: 'Roboto', sans-serif;">Senha:</label>
-									<h:inputSecret class="form-control"
-										value="#{autenticacaoBean.senha}" />
-								</div>
-								<div class="form-group text-center">
-									<label></label>
-									<h:selectOneMenu class="combobox">
-										<f:selectItem itemValue="1" itemLabel="Administrador" />
-										<f:selectItem itemValue="2" itemLabel="Usuário" />
-									</h:selectOneMenu>
-								</div>
-								<div class="form-group text-center">
-									<h:link value="Esqueci minha senha" outcome="recuperarSenha" />
-								</div>
-								<div class="text-center">
-									<h:commandButton value="Entrar" class="btn btn-light"
-										action="#{autenticacaoBean.autentica}" />
-								</div>
-							</h:form>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="px-3">
-					<div class="card text-white p-3 "
-						style="background-color: rgba(127, 8, 10, 0.85)">
-						<div class="card-body">
-							<h3 class="mb-4 text-center"
-								style="font-family: 'Orbitron', sans-serif; ">Cadastro</h3>
-							<h:form class="formularioLogin">
-								<div class="form-group text-center">
-									<label style="font-family: 'Roboto', sans-serif;">Nome:</label>
-									<h:inputText class="form-control"
-										value="#{autenticacaoBean.usuario}" />
-								</div>
 								<div class="form-group text-center">
 									<label style="font-family: 'Roboto', sans-serif;">Email:</label>
 									<h:inputText class="form-control"
@@ -127,6 +74,42 @@ logoDB1 {
 										value="#{autenticacaoBean.senha}" />
 								</div>
 								<div class="text-center">
+									<h:commandButton value="Entrar" class="btn btn-light"
+										action="#{autenticacaoBean.autentica}" />
+								</div>
+							</h:form>
+						</div>
+					</div>
+
+
+					<div class="card text-white p-3 "
+						style="background-color: rgba(127, 8, 10, 0.85)">
+						<div class="card-body">
+							<h3 class="mb-4 text-center"
+								style="font-family: 'Orbitron', sans-serif;">Cadastro</h3>
+							<h:form class="formularioLogin">
+									<div class="form-group text-center">
+										<label style="font-family: 'Roboto', sans-serif;">Nome:</label>
+										<h:inputText class="form-control"
+											value="#{autenticacaoBean.usuario}" />
+									</div>
+									<div class="form-group text-center">
+										<label style="font-family: 'Roboto', sans-serif;">Email:</label>
+										<h:inputText class="form-control"
+											value="#{autenticacaoBean.usuario}" />
+									</div>
+									<div class="form-group text-center">
+										<label style="font-family: 'Roboto', sans-serif;">Senha:</label>
+										<h:inputSecret class="form-control"
+											value="#{autenticacaoBean.senha}" />
+									</div>
+									<div class="form-group text-center">
+										<label style="font-family: 'Roboto', sans-serif;">Confirmação
+											da Senha:</label>
+										<h:inputSecret class="form-control"
+											value="#{autenticacaoBean.senha}" />
+									</div>
+								<div class="text-center">
 									<h:commandButton value="Cadastrar" class="btn btn-light"
 										action="#{autenticacaoBean.autentica}" />
 								</div>
@@ -134,12 +117,9 @@ logoDB1 {
 						</div>
 					</div>
 				</div>
-				</div>
-				
 			</div>
 		</div>
 	</div>
-
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
