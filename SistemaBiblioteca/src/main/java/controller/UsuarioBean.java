@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,6 +15,7 @@ import javax.inject.Named;
 import dao.impl.UsuarioDao;
 import model.Usuario;
 
+@ManagedBean
 @ApplicationScoped
 @Named
 public class UsuarioBean {
@@ -28,6 +30,7 @@ public class UsuarioBean {
 
 	@PostConstruct
 	public void init() {
+		usuario = new Usuario();
 		list = new ArrayList<Usuario>();
 	}
 
@@ -58,7 +61,7 @@ public class UsuarioBean {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+
 	public String novo() {
 		usuario = new Usuario();
 		return "cadastrarUsuario";
@@ -67,28 +70,16 @@ public class UsuarioBean {
 	public String salvar() {
 		if (!dao.save(usuario)) {
 			adicionarMensagem("Erro ao cadastrar o Usuário.", FacesMessage.SEVERITY_ERROR);
-		}else {
+		} else {
 
-		adicionarMensagem("Usuário salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-		nomeUsuarioFiltrado = this.usuario.getNome();
-		listarUsuario();
+			adicionarMensagem("Usuário salvo com sucesso.", FacesMessage.SEVERITY_INFO);
+			nomeUsuarioFiltrado = this.usuario.getNome();
+			listarUsuario();
 		}
 		return "usuario";
 	}
 
-	public String salvarLogin() {
-		usuario = new Usuario();
-		if (!dao.save(usuario)) {
-			adicionarMensagem("Erro ao cadastrar o Usuário.", FacesMessage.SEVERITY_ERROR);
-		}else {
 
-		adicionarMensagem("Usuário salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-		nomeUsuarioFiltrado = this.usuario.getNome();
-		listarUsuario();
-		}
-		return "login3";
-	}
-	
 	public String editar(Usuario usuario) {
 		this.usuario = dao.findById(usuario.getId());
 		return "cadastrarUsuario";

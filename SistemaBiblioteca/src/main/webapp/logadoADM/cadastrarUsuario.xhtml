@@ -15,7 +15,6 @@
 	
 	
 	
-	
 	 <div class="py-5">
     <div class="container">
       <div class="row">
@@ -33,6 +32,10 @@
               <h:inputText id="campoSenha" name="senhaUsuario" class="form-control" value="#{usuarioBean.usuario.senha}" required="true"/>
               <h:message for="campoSenha" style="color:red" /> 
             </div>
+             <div class="form-group"> <label>ADM</label>
+              <h:selectBooleanCheckbox value = "#{usuarioBean.usuario.administrador}" id = "campoADM"  />
+              <h:message for="campoADM" style="color:red" /> 
+            </div>
             <h:commandButton class="btn btn-primary" value="Salvar" action="#{usuarioBean.salvar}" />
           </h:form>
         </div>
@@ -40,6 +43,7 @@
     </div>
   </div>
 </div>
+
 	<h:outputScript name="bootstrap.min.js" library="js" async="true"
 		type="application/javascript" />
 </h:body>

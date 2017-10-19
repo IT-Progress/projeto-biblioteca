@@ -7,14 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@NamedQuery(name = "Usuario.autenticar",
-query = "SELECT c FROM Usuario c "
-                   + "WHERE c.email = :email AND c.senha = :senha")
 @Table(name="usuario", schema="public")
 public class Usuario implements Serializable{
 	
@@ -25,11 +20,14 @@ public class Usuario implements Serializable{
 	@Column(nullable = false)
 	private String nome;
 	
-	@Column
+	@Column(nullable=false)
 	private String email;
 	
-	@Column
+	@Column(nullable=false)
 	private String senha;
+	
+	@Column(nullable=false)
+	private Boolean administrador = false;
 
 	public Long getId() {
 		return id;
@@ -62,4 +60,14 @@ public class Usuario implements Serializable{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public Boolean getAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(Boolean administrador) {
+		this.administrador = administrador;
+	}
+	
+	
 }

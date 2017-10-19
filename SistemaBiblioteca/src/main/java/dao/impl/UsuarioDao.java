@@ -36,7 +36,7 @@ public class UsuarioDao implements DAO<Usuario> {
 			if (usuario.getId() != null) {
 				manager.merge(usuario);
 			} else {
-				manager.merge(usuario);
+				manager.persist(usuario);
 			}
 		} catch (Exception e) {
 			return false;
@@ -55,18 +55,13 @@ public class UsuarioDao implements DAO<Usuario> {
 		return true;
 
 	}
-	
+
+
 	public Usuario autenticacao(String email, String senha) {
-		Usuario usuario = null;
-		try {
-		Query query = manager.createQuery("Select u from Usuario u where u.email = :pEmail AND u.senha = :pSenha");
+		Query query = manager.createQuery("Select u from Usuario u where u.email = :pEmail and u.senha = :pSenha");
 		query.setParameter("pEmail", email);
-		query.setParameter("pSenha", senha);
-		usuario = (Usuario) query.getSingleResult();
-		}catch(RuntimeException e){
-			throw e;
-		}
-		return usuario; 
-		
-	}	
+		query.setParameter("pSenha", senha);	
+		return (Usuario) query.getSingleResult();
+	}
+	
 }
