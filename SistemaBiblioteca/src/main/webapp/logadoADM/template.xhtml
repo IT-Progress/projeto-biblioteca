@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org /1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta charset="UTF-8"></meta>
+	<title>IT-PROGRESS</title>
+	<h:outputStylesheet name="bootstrap.min.css" library="css"
+		type="text/css" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		type="text/css"></link>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<link id="active_style" rel="stylesheet"
+		href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/cosmo/bootstrap.min.css" />
+	<style>
+corTemplate {
+	background-color: #7f080a;
+}
+</style>
+</h:head>
+
+<h:body>
+	<nav class="navbar navbar-expand-md navbar-dark"
+		style="background-color: rgba(127, 8, 10, 0.85)">
+		<div class="container">
+			<h:link class="navbar-brand" outcome="home">
+				<i class="fa d-inline fa-lg fa-cube"></i>
+				<b> DB1</b>
+			</h:link>
+			<form class="form-inline m-0">
+				<input class="form-control mr-2" type="text" placeholder=""
+					style="padding: .5rem 3.75rem; margin: -60px; height: 37px"></input>
+				<h:link class="fa fa-search" aria-hidden="true" style="color:white"></h:link>
+
+			</form>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbar2SupportedContent"
+				aria-controls="navbar2SupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse text-right justify-content-end"
+				id="navbar2SupportedContent" style="flex-basis: 55%">
+
+				<h:link class="fa fa-book fa-fg" style="color:white"
+					title="Relatório">
+				</h:link>
+
+				<div class="btn-group">
+					<a class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
+						href="#" style="background-color: rgba(127, 8, 10, 0)"> <span
+						class="fa fa-pencil fa-fw" title="Editar"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/SistemaBiblioteca/logadoADM/livro.xhtml"><i
+								class="fa fa-pencil fa-fw"></i> Lista de Livro</a></li>
+						<li><a href="/SistemaBiblioteca/logadoADM/usuario.xhtml"><i
+								class="fa fa-pencil fa-fw"></i> Lista de Usuário</a></li>
+					</ul>
+				</div>
+
+				<div class="btn-group">
+					<a class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
+						href="#" style="background-color: rgba(127, 8, 10, 0)"> <span
+						class="fa d-inline fa-lg fa-user-circle-o" title="Sair">
+							#{sessionScope.usuario}</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/SistemaBiblioteca"><i
+								class="fa fa-sign-out fa-fw"></i> Sair</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<ui:insert></ui:insert>
+
+	<h:outputScript name="bootstrap.min.js" library="js" async="true"
+		type="application/javascript" />
+</h:body>
+</html>

@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org /1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="UTF-8"></meta>
+	<title>exemplo</title>
+	<h:outputStylesheet name="bootstrap.min.css" library="css"
+		type="text/css" />
+</h:head>
+<ui:composition template="template.xhtml">
+	<h:body>
+		<div class="col-md-12 text-center form-group">
+			<h1>Cadastro de Usuário</h1>
+
+
+
+
+			<div class="py-5">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h:form class="">
+								<div class="form-group">
+									<label>Nome do Usuario</label>
+									<h:inputText id="campoNomeUsuario" name="nomeUsuario"
+										class="form-control" value="#{usuarioBean.usuario.nome}"
+										required="true" />
+									<h:message for="campoNomeUsuario" style="color:red" />
+								</div>
+								<div class="form-group">
+									<label>Email</label>
+									<h:inputText id="campoEmail" name="emailUsuario"
+										class="form-control" value="#{usuarioBean.usuario.email}"
+										required="true" />
+									<h:message for="campoEmail" style="color:red" />
+								</div>
+								<div class="form-group">
+									<label>Senha</label>
+									<h:inputText id="campoSenha" name="senhaUsuario"
+										class="form-control" value="#{usuarioBean.usuario.senha}"
+										required="true" />
+									<h:message for="campoSenha" style="color:red" />
+								</div>
+								<h:commandButton class="btn btn-primary" value="Salvar"
+									action="#{usuarioBean.salvar}" />
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h:outputScript name="bootstrap.min.js" library="js" async="true"
+			type="application/javascript" />
+	</h:body>
+</ui:composition>
+</html>
