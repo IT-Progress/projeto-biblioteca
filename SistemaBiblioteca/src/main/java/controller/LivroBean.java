@@ -39,7 +39,7 @@ public class LivroBean {
 	public SituacaoLivro[] getSituacoesLivro() {
 		return SituacaoLivro.values();
 	}
-	
+
 	@PostConstruct
 	public void init() {
 		list = new ArrayList<Livro>();
@@ -111,9 +111,37 @@ public class LivroBean {
 		zerarLista();
 		if (!nomeLivroFiltrada.isEmpty()) {
 			list.addAll(dao.findByName(nomeLivroFiltrada));
-		} else {
+		}
+		if (!nomeLivroFiltrada.isEmpty()) {
+			list.addAll(dao.findByAutor(nomeLivroFiltrada));
+		}
+		else {
 			list.addAll(dao.findAll());
 		}
+	}
+
+	public String listarLivroComputacao() {
+		zerarLista();
+		list.addAll(dao.findByComputacao());
+		return "livro";
+	}
+
+	public String listarLivroAdministracao() {
+		zerarLista();
+		list.addAll(dao.findByAdministracao());
+		return "livro";
+	}
+
+	public String listarLivroOutros() {
+		zerarLista();
+		list.addAll(dao.findByOutros());
+		return "livro";
+	}
+
+	public String listarLivroTodos() {
+		zerarLista();
+		list.addAll(dao.findAll());
+		return "livro";
 	}
 
 	public void adicionarMensagem(String mensagem, Severity tipoMensagem) {

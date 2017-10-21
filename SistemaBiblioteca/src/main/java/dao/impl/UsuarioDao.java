@@ -17,6 +17,10 @@ public class UsuarioDao implements DAO<Usuario> {
 	public List<Usuario> findAll() {
 		return manager.createQuery("Select u from Usuario u").getResultList();
 	}
+	
+	public List<Usuario> findAll2() {
+		return manager.createQuery("Select u from Relatorio u").getResultList();
+	}
 
 	public Usuario findById(Long id) {
 		Query query = manager.createQuery("Select u from Usuario u where u.id = :pId");
@@ -26,6 +30,12 @@ public class UsuarioDao implements DAO<Usuario> {
 
 	public List<Usuario> findByName(String nome) {
 		Query query = manager.createQuery("Select u from Usuario u where u.nome like :pNome");
+		query.setParameter("pNome", "%" + nome + "%");
+		return query.getResultList();
+	}
+	
+	public List<Usuario> findByName2(String nome) {
+		Query query = manager.createQuery("Select u from Relatorio u where u.livro_id like :pNome");
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}

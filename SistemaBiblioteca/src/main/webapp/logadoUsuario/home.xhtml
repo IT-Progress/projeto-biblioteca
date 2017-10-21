@@ -26,19 +26,21 @@
 	<div class="py-1">
 		<div class="container">
 			<div class="row">
+		<h:form>
 				<div class="col-1" />
 				<div class="col-md-3">
-					<a href="#" class="btn btn-outline-danger">Computação</a>
+					<h:commandLink  class="btn btn-outline-danger" action="#{livroBean.listarLivroComputacao}">Computação</h:commandLink>
 				</div>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-outline-danger">Administração</button>
+					<h:commandLink type="button" class="btn btn-outline-danger" action="#{livroBean.listarLivroAdministracao}">Administração</h:commandLink>
 				</div>
 				<div class="col-md-3">
-					<button type="button" class="btn btn-outline-danger">Diversos</button>
+					<h:commandLink type="button" class="btn btn-outline-danger" action="#{livroBean.listarLivroOutros}">Outros</h:commandLink>
 				</div>
 				<div>
-					<button type="button" class="btn btn-outline-danger">Todos</button>
+					<h:commandLink type="button" class="btn btn-outline-danger" action="#{livroBean.listarLivroTodos}" >Todos</h:commandLink>
 				</div>
+				</h:form>
 			</div>
 		</div>
 	</div>
