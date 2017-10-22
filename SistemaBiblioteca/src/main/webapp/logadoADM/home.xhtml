@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org /1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -18,35 +17,33 @@
 </h:head>
 
 <ui:composition template="template.xhtml">
-<h:body>
-	
+	<h:body>
 
+		<div class="py-1 text-center opaque-overlay">
+			<h:graphicImage library="image" name="home1.png" />
+		</div>
 
-	<div class="py-1 text-center opaque-overlay">
-		<h:graphicImage library="image" name="home1.png" />
-	</div>
-	<div class="py-1">
-		<div class="container">
-			<div class="row">
-				<div class="col-1" />
-				<div class="col-md-3">
-					<a href="#" class="btn btn-outline-danger">Computação</a>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-outline-danger">Administração</button>
-				</div>
-				<div class="col-md-3">
-					<button type="button" class="btn btn-outline-danger">Diversos</button>
-				</div>
-				<div>
-					<button type="button" class="btn btn-outline-danger">Todos</button>
+		<div class="py-1">
+			<div class="container">
+				<div class="row" style="text-align: center">
+					<div class="col-md-3">
+						<a href="#" class="btn btn-outline-danger px-4">Computação</a>
+					</div>
+					<div class="col-md-3">
+						<button type="button" class="btn btn-outline-danger px-4">Administração</button>
+					</div>
+					<div class="col-md-3">
+						<button type="button" class="btn btn-outline-danger px-5">Diversos</button>
+					</div>
+					<div class="col-md-3">
+						<button type="button" class="btn btn-outline-danger px-5">Todos</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<h:outputScript name="bootstrap.min.js" library="js" async="true"
-		type="application/javascript" />
-</h:body>
+		<h:outputScript name="bootstrap.min.js" library="js" async="true"
+			type="application/javascript" />
+	</h:body>
 </ui:composition>
 </html>
