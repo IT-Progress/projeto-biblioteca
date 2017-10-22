@@ -28,6 +28,16 @@ body {
 	background-size: cover;
 	background-color: #565656;
 	background-blend-mode: soft-light;
+	heigth: 100%;
+	width: 100%;
+}
+
+.container {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
 }
 
 formularioLogin {
@@ -42,9 +52,6 @@ logoDB1 {
 </h:head>
 
 <h:body>
-
-	<div class="py-5"></div>
-
 	<div>
 		<div class="container" style="margin: auto">
 			<div class="row">
@@ -53,9 +60,8 @@ logoDB1 {
 						<h:graphicImage library="image" name="db1Logo.png" class="logoDB1" />
 						<br />
 						<h1 class="mb-4 text-center"
-							style="font-family: 'Orbitron', sans-serif; color:white">Biblioteca</h1>
+							style="font-family: 'Orbitron', sans-serif; color: white">Biblioteca</h1>
 					</div>
-
 
 					<div class="card text-white p-3 "
 						style="background-color: rgba(127, 8, 10, 0.85);">
@@ -81,34 +87,33 @@ logoDB1 {
 						</div>
 					</div>
 
-
 					<div class="card text-white p-3 "
 						style="background-color: rgba(127, 8, 10, 0.85)">
 						<div class="card-body">
 							<h3 class="mb-4 text-center"
 								style="font-family: 'Orbitron', sans-serif;">Cadastro</h3>
 							<h:form class="formularioLogin">
-									<div class="form-group text-center">
-										<label style="font-family: 'Roboto', sans-serif;">Nome:</label>
-										<h:inputText class="form-control"
-											value="#{autenticacaoBean.usuario}" />
-									</div>
-									<div class="form-group text-center">
-										<label style="font-family: 'Roboto', sans-serif;">Email:</label>
-										<h:inputText class="form-control"
-											value="#{autenticacaoBean.usuario}" />
-									</div>
-									<div class="form-group text-center">
-										<label style="font-family: 'Roboto', sans-serif;">Senha:</label>
-										<h:inputSecret class="form-control"
-											value="#{autenticacaoBean.senha}" />
-									</div>
-									<div class="form-group text-center">
-										<label style="font-family: 'Roboto', sans-serif;">Confirmação
-											da Senha:</label>
-										<h:inputSecret class="form-control"
-											value="#{autenticacaoBean.senha}" />
-									</div>
+								<div class="form-group text-center">
+									<label style="font-family: 'Roboto', sans-serif;">Nome:</label>
+									<h:inputText class="form-control"
+										value="#{autenticacaoBean.usuario}" />
+								</div>
+								<div class="form-group text-center">
+									<label style="font-family: 'Roboto', sans-serif;">Email:</label>
+									<h:inputText class="form-control"
+										value="#{autenticacaoBean.usuario}" />
+								</div>
+								<div class="form-group text-center">
+									<label style="font-family: 'Roboto', sans-serif;">Senha:</label>
+									<h:inputSecret class="form-control"
+										value="#{autenticacaoBean.senha}" />
+								</div>
+								<div class="form-group text-center">
+									<label style="font-family: 'Roboto', sans-serif;">Confirmação
+										da Senha:</label>
+									<h:inputSecret class="form-control"
+										value="#{autenticacaoBean.senha}" />
+								</div>
 								<div class="text-center">
 									<h:commandButton value="Cadastrar" class="btn btn-light"
 										action="#{autenticacaoBean.autentica}" />

@@ -1,4 +1,4 @@
-package br.com.db1.controller;
+package controller;
  
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
