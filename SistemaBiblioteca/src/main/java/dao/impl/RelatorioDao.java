@@ -15,7 +15,7 @@ public class RelatorioDao implements DAO<Relatorio>{
 	private EntityManager manager;
 	
 	public List<Relatorio> findAll() {
-		return manager.createQuery("Select u from Relatorio u").getResultList();
+		return manager.createQuery("Select u from Emprestimo u").getResultList();
 	}
 
 	public Relatorio findById(Long id) {

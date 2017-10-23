@@ -11,7 +11,7 @@ import dao.DAO;
 import dao.Transactional;
 import model.Livro;
 
-public class LivroDao implements DAO<Livro>{
+public class LivroDao implements DAO<Livro> {
 
 	@Inject
 	private EntityManager manager;
@@ -28,44 +28,51 @@ public class LivroDao implements DAO<Livro>{
 
 	public List<Livro> findByName(String nome) {
 		Query query = manager.createQuery("Select u from Livro u where u.nome like :pNome");
-		query.setParameter("pNome", "%"+nome+"%");
+		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}
-	
+
 	public List<Livro> findByAutor(String autor) {
 		Query query = manager.createQuery("Select u from Livro u where u.autor like :pAutor");
-		query.setParameter("pAutor", "%"+autor+"%");
+		query.setParameter("pAutor", "%" + autor + "%");
 		return query.getResultList();
 	}
-	
+
 	public List<Livro> findByCategoria(String categoria) {
 		Query query = manager.createQuery("Select u from Livro u where u.categoria like :pCategoria");
-		query.setParameter("pCategoria", "%"+categoria+"%");
+		query.setParameter("pCategoria", "%" + categoria + "%");
 		return query.getResultList();
 	}
-	
+
 	public List<Livro> findByTag(String tag) {
 		Query query = manager.createQuery("Select u from Livro u where u.tag like :pTag");
-		query.setParameter("pTag", "%"+tag+"%");
+		query.setParameter("pTag", "%" + tag + "%");
 		return query.getResultList();
 	}
-	
+
 	public List<Livro> findBySituacao(String situacao) {
 		Query query = manager.createQuery("Select u from Livro u where u.situacao like :pSituacao");
-		query.setParameter("pAutor", "%"+situacao+"%");
+		query.setParameter("pAutor", "%" + situacao + "%");
 		return query.getResultList();
 	}
-	
+
 	public List<Livro> findByComputacao() {
 		return manager.createQuery("Select u from Livro u where u.categoria like 'COMPUTAÇÃO' ").getResultList();
 	}
-	
+
 	public List<Livro> findByAdministracao() {
 		return manager.createQuery("Select u from Livro u where u.categoria like 'ADMINISTRAÇÃO' ").getResultList();
 	}
-	
+
 	public List<Livro> findByOutros() {
 		return manager.createQuery("Select u from Livro u where u.categoria like 'OUTROS' ").getResultList();
+	}
+
+	public List<Livro> findByString(String string) {
+		Query query = manager.createQuery(
+				"Select u from Livro u where u.nome like :pString OR u.autor like :pString OR u.categoria like :pString OR u.tag like :pString OR u.situacao like :pString");
+		query.setParameter("pString", "%" + string + "%");
+		return query.getResultList();
 	}
 
 	@Transactional
@@ -94,6 +101,4 @@ public class LivroDao implements DAO<Livro>{
 
 	}
 
-	
-	
 }

@@ -110,12 +110,8 @@ public class LivroBean {
 	public void listarLivro() {
 		zerarLista();
 		if (!nomeLivroFiltrada.isEmpty()) {
-			list.addAll(dao.findByName(nomeLivroFiltrada));
-		}
-		if (!nomeLivroFiltrada.isEmpty()) {
-			list.addAll(dao.findByAutor(nomeLivroFiltrada));
-		}
-		else {
+			list.addAll(dao.findByString(nomeLivroFiltrada));
+		} else {
 			list.addAll(dao.findAll());
 		}
 	}
@@ -150,6 +146,16 @@ public class LivroBean {
 		fm.setSeverity(tipoMensagem);
 		fc.addMessage(null, fm);
 
+	}
+
+	public String formatarNomeColuna(String nomeColuna) {
+		if (nomeColuna.length() == 0)
+			return "";
+		
+		if (nomeColuna.length() == 1)
+			return nomeColuna.toUpperCase();
+		
+		return nomeColuna.substring(0, 1).toUpperCase() + nomeColuna.substring(1).toLowerCase();
 	}
 
 }

@@ -38,7 +38,10 @@
 						<f:facet name="header">Nome Livro</f:facet>#{rel.livro.nome}</h:column>
 						<h:column>
 						<f:facet name="header">Nome Usuário</f:facet>#{rel.usuario.nome}</h:column>
-				
+						<h:column>
+						<f:facet name="header">Nome Emprestimo</f:facet>#{rel.emprestimo.nome}</h:column>
+						<h:column>
+						<f:facet name="header">Nome Devolucao</f:facet>#{rel.devolucao.nome}</h:column>
 						<h:column>
 						<f:facet name="header">Editar</f:facet>
 						<h:commandLink class="btn btn-info" value="" action="#{livroBean.editar(item)}"><i class="fa fa-pencil"></i></h:commandLink>
@@ -55,7 +58,6 @@
 						<f:facet name="header">Remover</f:facet>
 						<h:commandLink class="btn btn-danger" value="" action="#{livroBean.remover(item)}" update="livro"><i class="fa fa-trash" onclick="confirm('Deseja excluir?');"></i></h:commandLink>
 						</h:column>
-				
 				</h:dataTable>
 			</div>
 			<br></br>

@@ -39,11 +39,11 @@
 						<h:column>
 						<f:facet name="header">Autor</f:facet>#{item.autor}</h:column>
 						<h:column>
-						<f:facet name="header">Categoria</f:facet>#{item.categoria}</h:column>
+						<f:facet name="header">Categoria</f:facet>#{livroBean.formatarNomeColuna(item.categoria.toString())}</h:column>
 						<h:column>
 						<f:facet name="header">TAG</f:facet>#{item.tag}</h:column>
 						<h:column>
-						<f:facet name="header">Status</f:facet>#{item.situacao}</h:column>
+						<f:facet name="header">Status</f:facet>#{livroBean.formatarNomeColuna(item.situacao.toString())}</h:column>
 						<h:column>
 						<f:facet name="header">Editar</f:facet>
 						<h:commandLink class="btn btn-info" value="" action="#{livroBean.editar(item)}"><i class="fa fa-pencil"></i></h:commandLink>
