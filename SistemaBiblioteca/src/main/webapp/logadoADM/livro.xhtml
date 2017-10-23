@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org /1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -39,7 +39,8 @@
 						<h:column>
 						<f:facet name="header">Autor</f:facet>#{item.autor}</h:column>
 						<h:column>
-						<f:facet name="header">Categoria</f:facet>#{livroBean.formatarNomeColuna(item.categoria.toString())}</h:column>
+						<!--  <f:facet name="header">Categoria</f:facet>#{livroBean.formatarNomeColuna(item.categoria.toString())}</h:column>-->
+						<f:facet name="header">Categoria</f:facet>#{item.categoria.categoria}</h:column>
 						<h:column>
 						<f:facet name="header">TAG</f:facet>#{item.tag}</h:column>
 						<h:column>

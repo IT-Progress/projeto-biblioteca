@@ -70,7 +70,7 @@ public class LivroDao implements DAO<Livro> {
 
 	public List<Livro> findByString(String string) {
 		Query query = manager.createQuery(
-				"Select u from Livro u where u.nome like :pString OR u.autor like :pString OR u.categoria like :pString OR u.tag like :pString OR u.situacao like :pString");
+				"Select u from Livro u where (u.nome) like :pString OR u.autor like :pString OR u.categoria like :pString OR u.tag like :pString OR u.situacao like :pString");
 		query.setParameter("pString", "%" + string + "%");
 		return query.getResultList();
 	}

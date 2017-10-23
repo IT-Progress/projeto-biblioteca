@@ -21,30 +21,30 @@ import model.Usuario;
 @ApplicationScoped
 @Named
 public class RelatorioBean {
-	
+
 	@Inject
 	private UsuarioDao daoUsuario;
-	
+
 	@Inject
 	private RelatorioDao daoRelatorio;
 
 	@Inject
 	private LivroDao daoLivro;
-	
+
 	private List<Usuario> listUsuario;
-	
+
 	private List<Livro> listLivro;
 
 	private String nomeUsuarioFiltrado;
 
 	private Usuario usuario;
-	
+
 	private Livro livro;
-	
+
 	private Relatorio relatorio;
-	
+
 	private List<Relatorio> listRelatorio;
-	
+
 	private Long idFiltrado;
 
 	@PostConstruct
@@ -53,18 +53,20 @@ public class RelatorioBean {
 		carregarLivro();
 		carregarUsuario();
 	}
-	
+
 	public void carregarLivro() {
 		listLivro = daoLivro.findAll();
 		listUsuario = daoUsuario.findAll();
 	}
-	
+
 	public void carregarUsuario() {
-		
+
 	}
 
 	private void zerarLista() {
 		listUsuario = new ArrayList<Usuario>();
+		listLivro = new ArrayList<Livro>();
+		listRelatorio = new ArrayList<Relatorio>();
 	}
 
 	public String getNomeUsuarioFiltrado() {
@@ -95,7 +97,7 @@ public class RelatorioBean {
 		usuario = new Usuario();
 		return "cadastrarUsuario";
 	}
-	
+
 	public List<Usuario> getListUsuario() {
 		return listUsuario;
 	}
@@ -127,7 +129,7 @@ public class RelatorioBean {
 	public void setRelatorio(Relatorio relatorio) {
 		this.relatorio = relatorio;
 	}
-	
+
 	public List<Relatorio> getListRelatorio() {
 		return listRelatorio;
 	}
@@ -135,8 +137,6 @@ public class RelatorioBean {
 	public void setListRelatorio(List<Relatorio> listRelatorio) {
 		this.listRelatorio = listRelatorio;
 	}
-	
-	
 
 	public String salvar() {
 		if (!daoUsuario.save(usuario)) {
@@ -149,7 +149,6 @@ public class RelatorioBean {
 		}
 		return "usuario";
 	}
-
 
 	public String editar(Usuario usuario) {
 		this.usuario = daoUsuario.findById(usuario.getId());
@@ -175,7 +174,7 @@ public class RelatorioBean {
 			listUsuario.addAll(daoUsuario.findAll2());
 		}
 	}
-	
+
 	public Long getIdFiltrado() {
 		return idFiltrado;
 	}
@@ -186,10 +185,9 @@ public class RelatorioBean {
 
 	public void listarRelatorio() {
 		zerarLista();
-		if(!idFiltrado.toString().isEmpty()) {
-			listRelatorio.add(daoRelatorio.findById(idFiltrado));
-		}
-			listRelatorio.addAll(daoRelatorio.findAll());
+		
+			listRelatorio.addAll(daoRelatorio.findAllPersonalizado());
+		
 	}
 
 	public void adicionarMensagem(String mensagem, Severity tipoMensagem) {
@@ -199,5 +197,5 @@ public class RelatorioBean {
 		fc.addMessage(null, fm);
 
 	}
-	
+
 }

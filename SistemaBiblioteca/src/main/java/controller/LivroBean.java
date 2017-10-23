@@ -80,7 +80,6 @@ public class LivroBean {
 		} else {
 
 			adicionarMensagem("Livro salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-			nomeLivroFiltrada = this.livro.getNome();
 			listarLivro();
 		}
 		return "livro";

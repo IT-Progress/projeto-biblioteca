@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import dao.DAO;
-import dao.Transactional;
 import model.Relatorio;
 
 public class RelatorioDao implements DAO<Relatorio>{
@@ -15,9 +14,17 @@ public class RelatorioDao implements DAO<Relatorio>{
 	private EntityManager manager;
 	
 	public List<Relatorio> findAll() {
-		return manager.createQuery("Select u from Emprestimo u").getResultList();
+		return manager.createQuery("Select e.id, u.nome, l.titulo, e.emprestimo, e.devolucao"
+								+ "from Usuario u"
+								+ "inner join Emprestimo e on u.id = e.usuario_id"
+								+ "inner join Livro l on l.id = e.livro_id").getResultList();
 	}
 
+	public List<Relatorio> findAllPersonalizado() {
+		Query query = manager.createQuery("Select r from Relatorio r");
+		return query.getResultList();
+	} 
+	
 	public Relatorio findById(Long id) {
 		Query query = manager.createQuery("Select u from Usuario u where u.id = :pId");
 		query.setParameter("pId", id);
@@ -29,9 +36,6 @@ public class RelatorioDao implements DAO<Relatorio>{
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}
-
-
-
 
 	public boolean save(Relatorio t) {
 		// TODO Auto-generated method stub
