@@ -44,14 +44,14 @@
               <h:message for="campoTag" style="color:red" /> 
             </div>
             
-        <!--   <div class="form-group"> <label>Situação </label><br></br>
+        <div class="form-group"> <label>Situação </label><br></br>
             <h:selectOneMenu value="#{livroBean.livro.situacao}" id="campo-situacao"
 					requiredMessage="Categoria obrigatoria" label="Situação" required="true">
 					<f:selectItem itemValue="" itemLabel="Selecione uma Situação" />
 					<f:selectItems value="#{livroBean.situacoesLivro}" var="s"
 						itemLabel="#{s.situacaoLivros}" itemValue="#{s}" />
 				</h:selectOneMenu>
-			</div> -->  
+			</div>
 			
             <h:commandButton class="btn btn-primary" value="Salvar" action="#{livroBean.salvar}" />
           </h:form>

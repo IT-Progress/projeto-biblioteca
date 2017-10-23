@@ -71,6 +71,7 @@ public class LivroBean {
 
 	public String novo() {
 		livro = new Livro();
+		livro.setSituacao(SituacaoLivro.DISPONÍVEL);
 		return "cadastrarLivro";
 	}
 
@@ -87,7 +88,7 @@ public class LivroBean {
 
 	public String editar(Livro livro) {
 		this.livro = dao.findById(livro.getId());
-		return "cadastrarLivro";
+		return "editarLivro";
 	}
 
 	public String visualizar(Livro livro) {
@@ -150,10 +151,10 @@ public class LivroBean {
 	public String formatarNomeColuna(String nomeColuna) {
 		if (nomeColuna.length() == 0)
 			return "";
-		
+
 		if (nomeColuna.length() == 1)
 			return nomeColuna.toUpperCase();
-		
+
 		return nomeColuna.substring(0, 1).toUpperCase() + nomeColuna.substring(1).toLowerCase();
 	}
 
