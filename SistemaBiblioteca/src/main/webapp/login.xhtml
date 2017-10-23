@@ -20,6 +20,8 @@
 	<title>IT-PROGRESS</title>
 	<h:outputStylesheet name="bootstrap.min.css" library="css"
 		type="text/css" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="#{request.contextPath}/resources/image/favicon.ico" />
 	<style>
 body {
 	background-image: url("#{resource['image:fundoBiblioteca2.jpg']}");
@@ -46,11 +48,12 @@ logoDB1 {
 	<div class="py-5"></div>
 
 	<div>
-		<div style="background-color:rgba(255,255,255,0.85);padding:8rem 0; width:48.5%;margin-top: 8rem;position:absolute;z-index: -1"></div>
-		<div class="container" style="margin: auto;z-index: 900">
+		<div
+			style="background-color: rgba(255, 255, 255, 0.85); padding: 8rem 0; width: 48.5%; margin-top: 8rem; position: absolute; z-index: -1"></div>
+		<div class="container" style="margin: auto; z-index: 900">
 			<div class="row">
 				<div style="margin: auto; display: flex;">
-					
+
 					<div class="py-5; px-5" style="margin-top: 9.25rem">
 						<h:graphicImage library="image" name="db1Logo.png" class="logoDB1" />
 						<br />
@@ -68,14 +71,16 @@ logoDB1 {
 								<div class="form-group text-center">
 									<label style="font-family: 'Roboto', sans-serif;">Email:</label>
 									<h:inputText id="campoEmailLogin" class="form-control"
-										value="#{loginBean.usuario1.email}" required="true" label="Email"/>
-										<h:message for="campoEmailLogin" style="color:red" /> 
+										value="#{loginBean.usuario1.email}" required="true"
+										label="Email" />
+									<h:message for="campoEmailLogin" style="color:red" />
 								</div>
 								<div class="form-group text-center">
 									<label style="font-family: 'Roboto', sans-serif;">Senha:</label>
 									<h:inputSecret id="campoSenhaLogin" class="form-control"
-										value="#{loginBean.usuario1.senha}" required="true" label="Senha"/>
-										<h:message for="campoSenhaLogin" style="color:red" /> 
+										value="#{loginBean.usuario1.senha}" required="true"
+										label="Senha" />
+									<h:message for="campoSenhaLogin" style="color:red" />
 								</div>
 								<div class="text-center">
 									<h:commandButton value="Entrar" class="btn btn-light"
@@ -92,30 +97,30 @@ logoDB1 {
 							<h3 class="mb-4 text-center"
 								style="font-family: 'Orbitron', sans-serif;">Cadastro</h3>
 							<h:form class="formularioLogin">
-									<div class="form-group text-center">
-										<label style="font-family: 'Roboto', sans-serif;">Nome:</label>
-										<h:inputText id="campoNomeCadastro" class="form-control"
-											value="#{loginBean.usuario1.nome}" />
-										<h:message for="campoNomeCadastro" style="color:red" /> 
-									</div>
-									<div class="form-group text-center">
-										<label style="font-family: 'Roboto', sans-serif;">Email:</label>
-										<h:inputText id="campoEmailCadastro" class="form-control"
-											value="#{loginBean.usuario1.email}" />
-											<h:message for="campoEmailCadastro" style="color:red" /> 
-									</div>
-									<div class="form-group text-center">
-										<label style="font-family: 'Roboto', sans-serif;">Senha:</label>
-										<h:inputSecret id="campoSenhaCadastro" class="form-control"
-											value="#{loginBean.usuario1.senha}" />
-											<h:message for="campoSenhaCadastro" style="color:red" /> 
-									</div>
-									<div class="form-group text-center">
-										<label style="font-family: 'Roboto', sans-serif;">Confirmação
-											da Senha:</label>
-										<h:inputSecret class="form-control"
-											 /> <!--NÃO ESQUECER  -->
-									</div>
+								<div class="form-group text-center">
+									<label style="font-family: 'Roboto', sans-serif;">Nome:</label>
+									<h:inputText id="campoNomeCadastro" class="form-control"
+										value="#{loginBean.usuario1.nome}" />
+									<h:message for="campoNomeCadastro" style="color:red" />
+								</div>
+								<div class="form-group text-center">
+									<label style="font-family: 'Roboto', sans-serif;">Email:</label>
+									<h:inputText id="campoEmailCadastro" class="form-control"
+										value="#{loginBean.usuario1.email}" />
+									<h:message for="campoEmailCadastro" style="color:red" />
+								</div>
+								<div class="form-group text-center">
+									<label style="font-family: 'Roboto', sans-serif;">Senha:</label>
+									<h:inputSecret id="campoSenhaCadastro" class="form-control"
+										value="#{loginBean.usuario1.senha}" />
+									<h:message for="campoSenhaCadastro" style="color:red" />
+								</div>
+								<div class="form-group text-center">
+									<label style="font-family: 'Roboto', sans-serif;">Confirmação
+										da Senha:</label>
+									<h:inputSecret class="form-control" />
+									<!--NÃO ESQUECER  -->
+								</div>
 								<div class="text-center">
 									<h:commandButton value="Cadastrar" class="btn btn-light"
 										action="#{loginBean.salvarLogin}" />
@@ -139,6 +144,6 @@ logoDB1 {
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
 		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
 		crossorigin="anonymous"></script>
-	
+
 </h:body>
 </html>

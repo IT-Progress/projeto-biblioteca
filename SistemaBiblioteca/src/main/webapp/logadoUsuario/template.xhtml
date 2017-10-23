@@ -8,6 +8,8 @@
 	<title>IT-PROGRESS</title>
 	<h:outputStylesheet name="bootstrap.min.css" library="css"
 		type="text/css" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="#{request.contextPath}/resources/image/favicon.ico" />
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 		type="text/css"></link>
@@ -85,7 +87,7 @@ corTemplate {
 					<a class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
 						href="#" style="background-color: rgba(127, 8, 10, 0);"> <span
 						class="fa d-inline fa-lg fa-user-circle-o" title="Sair">
-							#{sessionScope.usuario}</span>
+							#{sessionScope.usuario.nome}</span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="/SistemaBiblioteca" style="color: black"><i
