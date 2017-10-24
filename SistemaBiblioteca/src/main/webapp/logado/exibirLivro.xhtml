@@ -27,8 +27,9 @@
 						<h3 class="success text-danger mt-5 mb-2">Indisponível</h3>
 						<!-- <h:outputText value = "#{livroBean.livro.autor}" style="font-size: 1.25rem; font-weight:500" class="pt-5"/> -->
 						<h5 class="mb-5">Estará disponível em 02/11/2017</h5>
-						<h:commandButton class="btn btn-success px-4 mr-1" value="Alugar"></h:commandButton>
+						<h:commandButton class="btn btn-success px-4 mr-1" value="Alugaraaa" action="#{livroBean.alugar}" outcome="/relatorio"></h:commandButton>
 						<h:commandButton class="btn btn-primary px-4" value="Reservar"></h:commandButton>
+						<h:commandButton class="btn btn-danger px-4" value="Cancelar" action="#{livroBean.listarLivro}" ></h:commandButton>
 					</div>
 				</div>
 			</div>

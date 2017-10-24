@@ -1,6 +1,7 @@
 package dao.impl;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -10,6 +11,9 @@ import javax.persistence.Query;
 import dao.DAO;
 import dao.Transactional;
 import model.Livro;
+import model.Relatorio;
+import model.SituacaoLivro;
+import model.Usuario;
 
 public class LivroDao implements DAO<Livro> {
 
@@ -99,6 +103,26 @@ public class LivroDao implements DAO<Livro> {
 		}
 		return true;
 
+	}
+	
+	@Transactional
+	public boolean alugar(Livro livro, Usuario usuario) {
+		try {
+			livro.setSituacao(SituacaoLivro.INDISPONÍVEL);
+			manager.merge(livro);
+			
+			Relatorio emprestimo = new Relatorio();
+			emprestimo.setLivro(livro);
+			emprestimo.setUsuario(usuario);
+			emprestimo.setDataDeDevolucao(new Date());
+			
+			//emprestimo.setDataDevolucao(getDataDevolucao());
+			
+			manager.persist(emprestimo);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 }

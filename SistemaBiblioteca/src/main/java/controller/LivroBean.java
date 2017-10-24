@@ -8,16 +8,20 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
-
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpSession;
 
 import dao.impl.LivroDao;
+import dao.impl.RelatorioDao;
 import model.CategoriaLivro;
 import model.Livro;
+import model.Relatorio;
 import model.SituacaoLivro;
 import model.Upload;
+import model.Usuario;
 
 @ApplicationScoped
 @Named
@@ -31,6 +35,15 @@ public class LivroBean {
 	private String nomeLivroFiltrada;
 
 	private Livro livro;
+	
+	private Usuario usuario;
+	
+	private List<Relatorio> listRelatorio;
+	
+	@Inject
+	private RelatorioDao daoRelatorio;
+	
+	private List<Usuario> listUsuario;
 
 	public CategoriaLivro[] getCategorias() {
 		return CategoriaLivro.values();
@@ -47,6 +60,8 @@ public class LivroBean {
 
 	private void zerarLista() {
 		list = new ArrayList<Livro>();
+		listUsuario = new ArrayList<Usuario>();
+		listRelatorio = new ArrayList<Relatorio>();
 	}
 
 	public String getNomeLivroFiltrada() {
@@ -157,5 +172,56 @@ public class LivroBean {
 
 		return nomeColuna.substring(0, 1).toUpperCase() + nomeColuna.substring(1).toLowerCase();
 	}
+	
+	
+	public String alugar() {
+		FacesContext fc = FacesContext.getCurrentInstance();
+		ExternalContext ec = fc.getExternalContext();
+		HttpSession session = (HttpSession) ec.getSession(true);
+		Usuario usuario = (Usuario)session.getAttribute("usuario");
+		
+		dao.alugar(this.livro, usuario);
 
+			adicionarMensagem("Sucesso", FacesMessage.SEVERITY_INFO);
+			listarRelatorio();
+		
+		return "relatorio";
+	}
+	
+	public void listarRelatorio() {
+		zerarLista();
+		
+			listRelatorio.addAll(daoRelatorio.findAllPersonalizado());
+		
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public List<Relatorio> getListRelatorio() {
+		return listRelatorio;
+	}
+
+	public void setListRelatorio(List<Relatorio> listRelatorio) {
+		this.listRelatorio = listRelatorio;
+	}
+
+	public List<Usuario> getListUsuario() {
+		return listUsuario;
+	}
+
+	public void setListUsuario(List<Usuario> listUsuario) {
+		this.listUsuario = listUsuario;
+	}
+
+	public void setList(List<Livro> list) {
+		this.list = list;
+	}
+	
+	
 }

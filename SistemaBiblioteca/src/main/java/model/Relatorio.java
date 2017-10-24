@@ -37,7 +37,7 @@ public class Relatorio implements Serializable {
 
 	@Column(name = "devolucao")
 	@Temporal(TemporalType.DATE)
-	private Date dataDeDevolucao = new Date();
+	private Date dataDeDevolucao;
 
 	public Date getDataDeEmprestimo() {
 		return dataDeEmprestimo;
