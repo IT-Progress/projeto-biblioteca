@@ -31,6 +31,22 @@ public class LivroBean {
 	private String nomeLivroFiltrada;
 
 	private Livro livro;
+	
+	private String textoBotao;
+
+	public String getTextoBotao() {
+		if(livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
+			textoBotao = "Alugar";
+		} else {
+			textoBotao = "Reservar";
+		}
+		
+		return textoBotao;
+	}
+
+	public void setTextoBotao(String textoBotao) {
+		this.textoBotao = textoBotao;
+	}
 
 	public CategoriaLivro[] getCategorias() {
 		return CategoriaLivro.values();
@@ -156,6 +172,10 @@ public class LivroBean {
 			return nomeColuna.toUpperCase();
 
 		return nomeColuna.substring(0, 1).toUpperCase() + nomeColuna.substring(1).toLowerCase();
+	}
+	
+	public String executarBotao(Livro livro) {
+		return "livro";
 	}
 
 }

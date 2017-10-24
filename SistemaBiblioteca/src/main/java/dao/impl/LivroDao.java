@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import dao.DAO;
 import dao.Transactional;
 import model.Livro;
+import model.SituacaoLivro;
 
 public class LivroDao implements DAO<Livro> {
 
@@ -98,7 +99,6 @@ public class LivroDao implements DAO<Livro> {
 			return false;
 		}
 		return true;
-
 	}
 
 }
