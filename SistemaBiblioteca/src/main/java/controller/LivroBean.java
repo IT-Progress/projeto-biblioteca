@@ -36,6 +36,7 @@ public class LivroBean {
 
 	private Livro livro;
 	
+
 	private Usuario usuario;
 	
 	private List<Relatorio> listRelatorio;
@@ -44,6 +45,23 @@ public class LivroBean {
 	private RelatorioDao daoRelatorio;
 	
 	private List<Usuario> listUsuario;
+
+	private String textoBotao;
+
+	public String getTextoBotao() {
+		if(livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
+			textoBotao = "Alugar";
+		} else {
+			textoBotao = "Reservar";
+		}
+		
+		return textoBotao;
+	}
+
+	public void setTextoBotao(String textoBotao) {
+		this.textoBotao = textoBotao;
+	}
+
 
 	public CategoriaLivro[] getCategorias() {
 		return CategoriaLivro.values();
@@ -173,6 +191,7 @@ public class LivroBean {
 		return nomeColuna.substring(0, 1).toUpperCase() + nomeColuna.substring(1).toLowerCase();
 	}
 	
+
 	
 	public String alugar() {
 		FacesContext fc = FacesContext.getCurrentInstance();
@@ -201,6 +220,10 @@ public class LivroBean {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public String executarBotao(Livro livro) {
+		return "livro";
 	}
 
 	public List<Relatorio> getListRelatorio() {

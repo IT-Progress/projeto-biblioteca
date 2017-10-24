@@ -15,6 +15,9 @@ import model.Relatorio;
 import model.SituacaoLivro;
 import model.Usuario;
 
+import model.SituacaoLivro;
+
+
 public class LivroDao implements DAO<Livro> {
 
 	@Inject
@@ -102,7 +105,6 @@ public class LivroDao implements DAO<Livro> {
 			return false;
 		}
 		return true;
-
 	}
 	
 	@Transactional

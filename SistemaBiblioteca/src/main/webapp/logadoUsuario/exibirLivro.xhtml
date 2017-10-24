@@ -22,13 +22,10 @@
 						<h:outputText value = "#{livroBean.livro.nome}" style="font-size: 2.5rem; font-weight:500" class="pt-5"/>
 						<h:outputText value = "#{livroBean.livro.autor}" style="font-size: 1.5rem; display:flex"/>
 						<h:outputText value = "#{livroBean.livro.categoria}" style="font-size: 1.5rem; display:flex"/>
-						<h:outputText value = "#{livroBean.livro.situacao}" style="font-size: 1.5rem; display:flex"/>
-						<h:outputText value = "#{livroBean.livro.autor}" style="font-size: 1.75rem; font-weight:500" class="success text-danger mt-5 mb-2"/>
-						<h3 class="success text-danger mt-5 mb-2">Indisponível</h3>
-						<!-- <h:outputText value = "#{livroBean.livro.autor}" style="font-size: 1.25rem; font-weight:500" class="pt-5"/> -->
+						<h:outputText value = "#{livroBean.livro.situacao}" style="font-size: 1.75rem; display:flex" class="success text-danger mt-5 mb-2"/>
 						<h5 class="mb-5">Estará disponível em 02/11/2017</h5>
-						<h:commandButton class="btn btn-success px-4 mr-1" value="Alugar"></h:commandButton>
-						<h:commandButton class="btn btn-primary px-4" value="Reservar"></h:commandButton>
+						<h:commandButton class="btn btn-success px-4 mr-1" value="#{livroBean.textoBotao}" action="#{livroBean.executarBotao(livro)}" ></h:commandButton>
+<!-- 						<h:commandButton class="btn btn-primary px-4" value="Reservar"></h:commandButton> -->
 					</div>
 				</div>
 			</div>
