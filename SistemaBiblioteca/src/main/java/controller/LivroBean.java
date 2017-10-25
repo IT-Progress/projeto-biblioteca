@@ -193,7 +193,7 @@ public class LivroBean {
 	
 
 	
-	public String alugar() {
+	public void alugar() {
 		FacesContext fc = FacesContext.getCurrentInstance();
 		ExternalContext ec = fc.getExternalContext();
 		HttpSession session = (HttpSession) ec.getSession(true);
@@ -204,13 +204,24 @@ public class LivroBean {
 			adicionarMensagem("Sucesso", FacesMessage.SEVERITY_INFO);
 			listarRelatorio();
 		
-		return "relatorio";
+		//return "relatorio";
 	}
 	
 	public void listarRelatorio() {
 		zerarLista();
 		
 			listRelatorio.addAll(daoRelatorio.findAllPersonalizado());
+		
+	}
+	
+	public String executarBotao(SituacaoLivro situacao) {
+		if(livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {			
+			alugar();
+			return "livro";
+		} else {
+			return "livro";
+		}
+		
 		
 	}
 
@@ -220,10 +231,6 @@ public class LivroBean {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public String executarBotao(Livro livro) {
-		return "livro";
 	}
 
 	public List<Relatorio> getListRelatorio() {
