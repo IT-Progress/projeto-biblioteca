@@ -23,6 +23,9 @@
 						<h:outputText value = "#{livroBean.livro.autor}" style="font-size: 1.5rem; display:flex"/>
 						<h:outputText value = "#{livroBean.livro.categoria}" style="font-size: 1.5rem; display:flex"/>
 						<h:outputText value = "#{livroBean.livro.situacao}" style="font-size: 1.75rem; display:flex" class="success text-danger mt-5 mb-2"/>
+						<h3 class="success text-danger mt-5 mb-2">#{livroBean.livro.situacao}</h3>
+
+
 						<h5 class="mb-5">Estará disponível em 02/11/2017</h5>
 						<h:commandButton class="btn btn-success px-4 mr-1" value="#{livroBean.textoBotao}" action="#{livroBean.executarBotao(livroBean.livro.situacao)}" ></h:commandButton>
 <!-- 						<h:commandButton class="btn btn-primary px-4" value="Reservar"></h:commandButton> -->

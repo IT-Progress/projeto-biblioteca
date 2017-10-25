@@ -43,14 +43,6 @@
 						<h:column>
 						<f:facet name="header">Data de Devolucao</f:facet>#{rel.dataDeDevolucao}</h:column>
 						<h:column>
-						<f:facet name="header">Editar</f:facet>
-						<h:commandLink class="btn btn-info" value="" action="#{livroBean.editar(item)}"><i class="fa fa-pencil"></i></h:commandLink>
-						</h:column>
-						<h:column>
-						<f:facet name="header">Imagem</f:facet>
-						<h:commandLink class="btn btn-warning" value=""  update="livro"><i class="fa fa-upload"></i></h:commandLink>
-						</h:column>
-						<h:column>
 						<f:facet name="header">Visualizar</f:facet>
 						<h:commandLink class="btn btn-primary" value="" action="#{livroBean.visualizar(item)}" update="livro"><i class="fa fa-eye"></i></h:commandLink>
 						</h:column>
@@ -61,9 +53,6 @@
 				</h:dataTable>
 			</div>
 			<br></br>
-			<div class="row">
-				<h:commandLink class="btn btn-success" value="Adicionar " action="#{livroBean.novo}"><i class="fa fa-book"></i></h:commandLink>
-			</div>
 		</div>
 	</div>
 	</h:form>
