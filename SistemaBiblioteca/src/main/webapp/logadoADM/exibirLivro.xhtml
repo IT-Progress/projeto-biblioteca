@@ -19,18 +19,16 @@
 							class="py-5 rounded" />
 					</div>
 					<div class="col-md-8">
-						
 						<h:outputText value = "#{livroBean.livro.nome}" style="font-size: 2.5rem; font-weight:500" class="pt-5"/>
 						<h:outputText value = "#{livroBean.livro.autor}" style="font-size: 1.5rem; display:flex"/>
 						<h:outputText value = "#{livroBean.livro.categoria}" style="font-size: 1.5rem; display:flex"/>
-						<h:outputText value = "#{livroBean.livro.situacao}" style="font-size: 1.5rem; display:flex"/>
-						<!-- <h:outputText value = "#{livroBean.livro.autor}" style="font-size: 1.75rem; font-weight:500" class="success text-danger mt-5 mb-2"/> -->
-						<h3 class="success text-danger mt-5 mb-2">Indisponível</h3>
-						<!-- <h:outputText value = "#{livroBean.livro.autor}" style="font-size: 1.25rem; font-weight:500" class="pt-5"/> -->
+						<h:outputText value = "#{livroBean.livro.situacao}" style="font-size: 1.75rem; display:flex" class="success text-danger mt-5 mb-2"/>
+						<h3 class="success text-danger mt-5 mb-2">#{livroBean.livro.situacao}</h3>
+
+
 						<h5 class="mb-5">Estará disponível em 02/11/2017</h5>
-						<h:commandLink class="btn btn-success px-4 mr-1" action="#{livroBean.alugar}" value="Alugar"></h:commandLink>
-						<h:commandButton class="btn btn-primary px-4 mr-1" value="Reservar"></h:commandButton>
-						<h:commandButton class="btn btn-danger px-4" value="Cancelar"></h:commandButton>
+						<h:commandButton class="btn btn-success px-4 mr-1" value="#{livroBean.textoBotao}" action="#{livroBean.executarBotao(livroBean.livro.situacao)}" ></h:commandButton>
+<!-- 						<h:commandButton class="btn btn-primary px-4" value="Reservar"></h:commandButton> -->
 					</div>
 				</div>
 			</div>
