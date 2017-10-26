@@ -10,6 +10,7 @@
 </h:head>
 <ui:composition template="template.xhtml">
 	<h:body>
+	<h:form>
 		<div class="py-5 my-5">
 			<div class="container">
 				<div class="row">
@@ -20,8 +21,8 @@
 					<div class="col-md-8">
 						<h:outputText value = "#{livroBean.livro.nome}" style="font-size: 2.5rem; font-weight:500" class="pt-5"/>
 						<h:outputText value = "#{livroBean.livro.autor}" style="font-size: 1.5rem; display:flex"/>
-						<h:outputText value = "#{livroBean.livro.categoria}" style="font-size: 1.5rem; display:flex"/>
-						<h:outputText value = "#{livroBean.livro.situacao}" style="font-size: 1.75rem; display:flex" class="success text-danger mt-5 mb-2"/>
+						<h:outputText value = "#{livroBean.livro.categoria.categoria}" style="font-size: 1.5rem; display:flex"/>
+						<h:outputText value = "#{livroBean.livro.situacao.situacaoLivros}" style="font-size: 1.75rem; display:flex" class="success text-danger mt-5 mb-2"/>
 						<h5 class="mb-5">Estará disponível em 02/11/2017</h5>
 						<h:commandButton class="btn btn-success px-4 mr-1" value="#{livroBean.textoBotao}" action="#{livroBean.executarBotao(livroBean.livro.situacao)}" ></h:commandButton>
 <!-- 						<h:commandButton class="btn btn-primary px-4" value="Reservar"></h:commandButton> -->
@@ -29,7 +30,7 @@
 				</div>
 			</div>
 		</div>
-
+</h:form>
 		<h:outputScript name="bootstrap.min.js" library="js" async="true"
 			type="application/javascript" />
 	</h:body>

@@ -146,6 +146,7 @@ public class LivroBean {
 			list.addAll(dao.findByString(nomeLivroFiltrada));
 		} else {
 			list.addAll(dao.findAll());
+			
 		}
 	}
 	
@@ -197,7 +198,7 @@ public class LivroBean {
 
 	}
 
-	public String formatarNomeColuna(String nomeColuna) {
+	public String formatarTexto(String nomeColuna) {
 		if (nomeColuna.length() == 0)
 			return "";
 

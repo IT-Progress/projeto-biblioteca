@@ -58,12 +58,11 @@
 								<h:column>
 									<f:facet name="header">Autor</f:facet>#{item.autor}</h:column>
 								<h:column>
-									<!--  <f:facet name="header">Categoria</f:facet>#{livroBean.formatarNomeColuna(item.categoria.toString())}</h:column>-->
 									<f:facet name="header">Categoria</f:facet>#{item.categoria.categoria}</h:column>
 								<h:column>
 									<f:facet name="header">TAG</f:facet>#{item.tag}</h:column>
 								<h:column>
-									<f:facet name="header">Status</f:facet>#{livroBean.formatarNomeColuna(item.situacao.toString())}</h:column>
+									<f:facet name="header">Status</f:facet>#{item.situacao.situacaoLivros}</h:column>
 								<h:column>
 
 									<div class="btn-group" role="group">
@@ -77,7 +76,7 @@
 											action="#{livroBean.visualizar(item)}" update="livro">
 											<i class="fa fa-eye"></i>
 										</h:commandLink>
-										<h:commandLink class="btn btn-light text-secondary" value=""
+										<h:commandLink class="btn btn-light text-dark" value=""
 											update="livro">
 											<i class="fa fa-upload"></i>
 										</h:commandLink>
