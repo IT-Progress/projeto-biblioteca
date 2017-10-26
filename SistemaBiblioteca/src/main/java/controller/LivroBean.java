@@ -146,6 +146,7 @@ public class LivroBean {
 			list.addAll(dao.findByString(nomeLivroFiltrada));
 		} else {
 			list.addAll(dao.findAll());
+			
 		}
 	}
 
