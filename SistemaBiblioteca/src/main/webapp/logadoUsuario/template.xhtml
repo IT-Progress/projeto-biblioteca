@@ -67,11 +67,17 @@ corTemplate {
 				<i class="fa d-inline fa-lg fa-cube"></i>
 				<b> DB1</b>
 			</h:link>
-			<form class="form-inline m-0">
-				<input class="form-control mr-2" type="text" placeholder=""></input>
-				<h:link class="fa fa-search" aria-hidden="true" style="color:white"></h:link>
+			
+			
+			<h:form class="form-inline m-0" >
+				<h:inputText class="form-control" type="text" placeholder="" value="#{livroBean.nomeLivroFiltrada}"></h:inputText>
+				<h:commandLink value="Entrar" class="fa fa-sea fa-fg btn btn-danger"
+					style="background-color: rgba(127, 8, 10, 0); color: white"
+					title="Pesquisar"
+										action="#{livroBean.pesquisar}" />
+			</h:form>
 
-			</form>
+
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbar2SupportedContent"
 				aria-controls="navbar2SupportedContent" aria-expanded="false"

@@ -14,9 +14,9 @@
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 		type="text/css"></link>
-	
-	
-	
+
+
+
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 	<script
@@ -25,18 +25,19 @@
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
 		integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 		crossorigin="anonymous" />
-		
-		
+
+
 	<link href="https://fonts.googleapis.com/css?family=Orbitron"
 		rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Orbitron|Roboto"
 		rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Electrolize"
 		rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
-	
-		
-		
+	<link href="https://fonts.googleapis.com/css?family=Lato"
+		rel="stylesheet" />
+
+
+
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>
@@ -48,31 +49,32 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
 		integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
 		crossorigin="anonymous"></script>
-		
-	<link rel="stylesheet" href="../resources/css/table.css" type="text/css"></link>
+
+	<link rel="stylesheet" href="../resources/css/table.css"
+		type="text/css"></link>
 	<style>
-		*{
-			font-family:'Lato', sans-serif;
-		}
-	
-		corTemplate {
-			background-color: #7f080a;
-		}
-		
-		.btn-danger {
-			border-color: rgba(127, 8, 10, 0);
-		}
-		
-		.btn-danger.focus, .btn-danger:focus, .btn-danger:not ([disabled] ):not
+* {
+	font-family: 'Lato', sans-serif;
+}
+
+corTemplate {
+	background-color: #7f080a;
+}
+
+.btn-danger {
+	border-color: rgba(127, 8, 10, 0);
+}
+
+.btn-danger.focus, .btn-danger:focus, .btn-danger:not ([disabled] ):not
 			 (.disabled ).active, .btn-danger:not ([disabled] ):not (.disabled ):active,
-			.show>.btn-danger.dropdown-toggle {
-			box-shadow: 0 0 0 0;
-		}
-		
-		.form-control:focus {
-				border-color:#868e96;
-			}
-	</style>
+	.show>.btn-danger.dropdown-toggle {
+	box-shadow: 0 0 0 0;
+}
+
+.form-control:focus {
+	border-color: #868e96;
+}
+</style>
 </h:head>
 
 <h:body>
@@ -83,17 +85,16 @@
 				<i class="fa d-inline fa-lg fa-cube"></i>
 				<b> DB1</b>
 			</h:link>
-			<form class="form-inline m-0">
-				<input class="form-control mr-2" type="text" placeholder=""></input>
-				<h:link class="fa fa-search" aria-hidden="true" style="color:white"></h:link>
+			
+			
+			<h:form class="form-inline m-0" >
+				<h:inputText class="form-control" type="text" placeholder="" value="#{livroBean.nomeLivroFiltrada}"></h:inputText>
+				<h:commandLink value="Entrar" class="fa fa-sea fa-fg btn btn-danger"
+					style="background-color: rgba(127, 8, 10, 0); color: white"
+					title="Pesquisar"
+										action="#{livroBean.pesquisar}" />
+			</h:form>
 
-			</form>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbar2SupportedContent"
-				aria-controls="navbar2SupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
 
 			<div class="collapse navbar-collapse text-right justify-content-end"
 				id="navbar2SupportedContent" style="flex-basis: 55%">
@@ -108,7 +109,7 @@
 						href="#" style="background-color: rgba(127, 8, 10, 0)"> <span
 						class="fa fa-pencil fa-fw" title="Editar"></span>
 					</a>
-					<ul class="dropdown-menu pl-3" style="width:12rem">
+					<ul class="dropdown-menu pl-3" style="width: 12rem">
 						<li><a href="/SistemaBiblioteca/logadoADM/livro.xhtml"
 							style="color: black"><i class="fa fa-pencil fa-fw"
 								style="color: black"></i> Cadastrar livros</a></li>
@@ -124,7 +125,7 @@
 						class="fa d-inline fa-lg fa-user-circle-o" title="Sair">
 							#{sessionScope.usuario.nome}</span>
 					</a>
-					<ul class="dropdown-menu pl-3" style="width:10rem">
+					<ul class="dropdown-menu pl-3" style="width: 10rem">
 						<li><a href="/SistemaBiblioteca" style="color: black"><i
 								class="fa fa-sign-out fa-fw" style="color: black"></i> Sair</a></li>
 					</ul>

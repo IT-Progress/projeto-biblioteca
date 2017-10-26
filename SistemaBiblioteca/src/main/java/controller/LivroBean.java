@@ -148,6 +148,22 @@ public class LivroBean {
 			list.addAll(dao.findAll());
 		}
 	}
+	
+	
+
+	public String pesquisar() {
+		zerarLista();
+		if (!nomeLivroFiltrada.isEmpty()) {
+			list.addAll(dao.findByString(nomeLivroFiltrada));
+			return "livro";	
+		} else {
+			list.addAll(dao.findAll());
+			return "livro";
+		}
+		
+	}
+	
+	
 
 	public String listarLivroComputacao() {
 		zerarLista();
