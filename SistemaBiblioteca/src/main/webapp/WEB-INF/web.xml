@@ -19,6 +19,18 @@
 		<exception-type>java.lang.Exception</exception-type>
 		<location>/erro.xhtml</location>
 	</error-page>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/erro404.xhtml</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/erro500.xhtml</location>
+	</error-page>
+	
+	
 
 	<!-- Login filter -->
 	<filter>
