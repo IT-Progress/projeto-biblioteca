@@ -38,25 +38,29 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
 		integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
 		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="../resources/css/table.css" type="text/css"></link>
 	<style>
-corTemplate {
-	background-color: #7f080a;
-}
-
-.btn-danger {
-	border-color: rgba(127, 8, 10, 0);
-}
-
-.btn-danger.focus, .btn-danger:focus, .btn-danger:not ([disabled] ):not
-	 (.disabled ).active, .btn-danger:not ([disabled] ):not (.disabled ):active,
-	.show>.btn-danger.dropdown-toggle {
-	box-shadow: 0 0 0 0;
-}
-
-.form-control:focus {
-	border-color: #868e96;
-}
-</style>
+		*{
+			font-family:'Lato', sans-serif;
+		}
+		corTemplate {
+			background-color: #7f080a;
+		}
+		
+		.btn-danger {
+			border-color: rgba(127, 8, 10, 0);
+		}
+		
+		.btn-danger.focus, .btn-danger:focus, .btn-danger:not ([disabled] ):not
+			 (.disabled ).active, .btn-danger:not ([disabled] ):not (.disabled ):active,
+			.show>.btn-danger.dropdown-toggle {
+			box-shadow: 0 0 0 0;
+		}
+		
+		.form-control:focus {
+			border-color: #868e96;
+		}
+	</style>
 </h:head>
 
 <h:body>
@@ -89,7 +93,7 @@ corTemplate {
 						class="fa d-inline fa-lg fa-user-circle-o" title="Sair">
 							#{sessionScope.usuario.nome}</span>
 					</a>
-					<ul class="dropdown-menu">
+					<ul class="dropdown-menu pl-3" style="width:10rem">
 						<li><a href="/SistemaBiblioteca" style="color: black"><i
 								class="fa fa-sign-out fa-fw" style="color: black"></i> Sair</a></li>
 					</ul>
