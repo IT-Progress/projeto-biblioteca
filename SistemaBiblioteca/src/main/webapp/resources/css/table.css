@@ -1,0 +1,13 @@
+.darkRed {
+	background-color: rgba(127, 8, 10, 0.85);
+	color: white;
+	border-color: rgba(127, 8, 10, 1);
+}
+
+.form-control:focus {
+	border-color: #868e96;
+}
+
+.table td {
+	vertical-align: middle;
+}
