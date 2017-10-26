@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+</h:head>
+<h:body>
+	<f:view>
+		<h:form>
+			<h:form>
+				<h:panelGrid width="100%">
+					<h:outputText value="Os seguintes erros ocorreram:" style="color: #FF0000; font-weight: bolder;" />
+					<h:panelGroup
+							layout="block"
+							style="width: 100%; border: solid 1px #000; min-height: 200px; font-family: courier; font-size: 11px;"
+							readonly="true"
+							contentEditable="true">
+						#{Error.stackTrace}
+					</h:panelGroup>
+				</h:panelGrid>
+			</h:form>
+		</h:form>
+	</f:view>
+</h:body>
+</html>
