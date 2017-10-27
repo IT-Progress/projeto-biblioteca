@@ -73,12 +73,21 @@
 			</h:link>
 			
 			
-			<h:form class="form-inline m-0" >
-				<h:inputText class="form-control" type="text" placeholder="" value="#{livroBean.nomeLivroFiltrada}"></h:inputText>
-				<h:commandLink value="Entrar" class="fa fa-sea fa-fg btn btn-danger"
-					style="background-color: rgba(127, 8, 10, 0); color: white"
-					title="Pesquisar"
-										action="#{livroBean.pesquisar}" />
+			<h:form class="form-inline m-0">
+
+				<div class="input-group" style="padding-left: 0 !important">
+					<h:inputText class="form-control" type="text" placeholder=""
+						value="#{livroBean.nomeLivroFiltrada}"></h:inputText>
+
+					<span class="input-group-btn"> <h:commandButton
+							class="btn btn-danger" value="Pesquisar"
+							action="#{livroBean.pesquisar}" />
+					</span>
+				</div>
+
+
+
+
 			</h:form>
 
 
