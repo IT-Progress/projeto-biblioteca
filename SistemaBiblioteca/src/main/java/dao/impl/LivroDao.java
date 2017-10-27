@@ -1,5 +1,6 @@
 package dao.impl;
 
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -8,6 +9,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import controller.RelatorioBean;
 import dao.DAO;
 import dao.Transactional;
 import model.Livro;
@@ -118,7 +120,13 @@ public class LivroDao implements DAO<Livro> {
 			emprestimo.setUsuario(usuario);
 			emprestimo.setDataDeDevolucao(new Date());
 			
-			//emprestimo.setDataDevolucao(getDataDevolucao());
+			Date data = emprestimo.getDataDeDevolucao();
+			Calendar devolucao = Calendar.getInstance();
+			devolucao.setTime(data);
+			devolucao.add(Calendar.DAY_OF_YEAR, 15);
+			Date dataCalculada = devolucao.getTime();
+	
+			emprestimo.setDataDeDevolucao(dataCalculada);
 			
 			manager.persist(emprestimo);
 		} catch (Exception e) {
