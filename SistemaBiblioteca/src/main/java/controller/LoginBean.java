@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -73,19 +71,30 @@ public class LoginBean {
 	}
 
 	public String salvarLogin() {
-		Usuario novoUsuario = new Usuario();
-		novoUsuario.setAdministrador(false);
-		novoUsuario.setEmail(usuario1.getEmail());
-		novoUsuario.setNome(usuario1.getNome());
-		novoUsuario.setSenha(usuario1.getSenha());
-		if (!dao.save(novoUsuario)) {
-			adicionarMensagem("Erro ao cadastrar o Usuário.", FacesMessage.SEVERITY_ERROR);
+
+		String senha = usuario1.getSenha();
+		String senhaConfirmacao = usuario1.getSenhaConfirmacao();
+		if (senha.equals(senhaConfirmacao)) {
+			
+			Usuario novoUsuario = new Usuario();
+			novoUsuario.setAdministrador(false);
+			novoUsuario.setEmail(usuario1.getEmail());
+			novoUsuario.setNome(usuario1.getNome());
+			novoUsuario.setSenha(usuario1.getSenha());
+			if (!dao.save(novoUsuario)) {
+				FacesMessage msg = new FacesMessage("Usuário NÃO cadastrado!");
+				FacesContext.getCurrentInstance().addMessage("erro", msg);
+			} else {
+				FacesMessage msgCadastrado = new FacesMessage("Cadastrado com sucesso!");
+				FacesContext.getCurrentInstance().addMessage("erro", msgCadastrado);
+			}
 		} else {
-			adicionarMensagem("Usuário salvo com sucesso.", FacesMessage.SEVERITY_INFO);
+			FacesMessage senhaErrada = new FacesMessage("Senhas NÃO coincidem!");
+			FacesContext.getCurrentInstance().addMessage("erro", senhaErrada);
 		}
 		return "login";
 	}
-	
+
 	public void adicionarMensagem(String mensagem, Severity tipoMensagem) {
 		FacesContext fc = FacesContext.getCurrentInstance();
 		FacesMessage fm = new FacesMessage(mensagem);
@@ -94,5 +103,4 @@ public class LoginBean {
 
 	}
 
-	
 }

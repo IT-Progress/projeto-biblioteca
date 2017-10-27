@@ -11,49 +11,52 @@
 		type="text/css"></link>
 	<h:outputStylesheet name="bootstrap.min.css" library="css"
 		type="text/css" />
-	<link rel="stylesheet" href="resources/css/loginCSS.css" type="text/css"></link>
+	<link rel="stylesheet" href="resources/css/loginCSS.css"
+		type="text/css"></link>
 	<link href="https://fonts.googleapis.com/css?family=Orbitron"
 		rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Orbitron|Roboto"
 		rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Electrolize"
 		rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Lato"
+		rel="stylesheet" />
 	<title>IT-PROGRESS</title>
-	
+
 	<link rel="shortcut icon" type="image/x-icon"
 		href="#{request.contextPath}/resources/image/favicon.ico" />
 	<style>
-		*{
-			font-family:'Lato', sans-serif;
-		}
-		body {
-			background-image: url("#{resource['image:fundoBiblioteca2.jpg']}");
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			background-size: cover;
-			background-color: #565656;
-			background-blend-mode: soft-light;
-			height: 100%;
-			width: 100%;
-		}
-		
-		.container {
-			align-items: center;
-			display: flex;
-			justify-content: center;
-			height: 100%;
-			width: 100%;
-		}
-		
-		formularioLogin {
-			backgroud: rgba(0, 0, 0, 0.15);
-		}
-		
-		logoDB1 {
-			width: 40%;
-		}
-	</style>
+* {
+	font-family: 'Lato', sans-serif;
+}
+
+body {
+	background-image: url("#{resource['image:fundoBiblioteca2.jpg']}");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #565656;
+	background-blend-mode: soft-light;
+	height: 100%;
+	width: 100%;
+}
+
+.container {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+
+formularioLogin {
+	backgroud: rgba(0, 0, 0, 0.15);
+}
+
+logoDB1 {
+	width: 40%;
+}
+</style>
 
 </h:head>
 
@@ -66,7 +69,7 @@
 			<div class="row">
 				<div style="margin: auto; display: flex;">
 
-					<div class="py-5; px-5" style="margin-top: 9.25rem; z-index:1">
+					<div class="py-5; px-5" style="margin-top: 9.25rem; z-index: 1">
 						<h:graphicImage library="image" name="db1Logo.png" class="logoDB1" />
 						<br />
 						<h1 class="mb-4 text-center"
@@ -77,7 +80,8 @@
 					<div class="card text-white p-3 "
 						style="background-color: rgba(127, 8, 10, 0.85);">
 						<div class="card-body" style="margin-top: 5.4rem">
-							<h3 class="mb-4 text-center" style="font-family: 'Electrolize', sans-serif;">Login</h3>
+							<h3 class="mb-4 text-center"
+								style="font-family: 'Electrolize', sans-serif;">Login</h3>
 							<h:form class="formularioLogin">
 								<div class="form-group text-center">
 									<label>Email:</label>
@@ -111,31 +115,33 @@
 								<div class="form-group text-center">
 									<label>Nome:</label>
 									<h:inputText id="campoNomeCadastro" class="form-control"
-										value="#{loginBean.usuario1.nome}" required="true"/>
+										value="#{loginBean.usuario1.nome}" required="true" />
 									<h:message for="campoNomeCadastro" style="color:red" />
 								</div>
 								<div class="form-group text-center">
 									<label>Email:</label>
 									<h:inputText id="campoEmailCadastro" class="form-control"
-										value="#{loginBean.usuario1.email}" required="true"/>
+										value="#{loginBean.usuario1.email}" required="true" />
 									<h:message for="campoEmailCadastro" style="color:red" />
 								</div>
 								<div class="form-group text-center">
 									<label>Senha:</label>
 									<h:inputSecret id="campoSenhaCadastro" class="form-control"
-										value="#{loginBean.usuario1.senha}" required="true"/>
+										value="#{loginBean.usuario1.senha}" required="true" />
 									<h:message for="campoSenhaCadastro" style="color:red" />
 								</div>
 								<div class="form-group text-center">
-									<label>Confirmação
-										da Senha:</label>
-									<h:inputSecret class="form-control" />
-									<!--NÃO ESQUECER  -->
+									<label>Confirmação da Senha:</label>
+									<h:inputSecret id="campoSenhaCadastroConfirm"
+										class="form-control"
+										value="#{loginBean.usuario1.senhaConfirmacao}" required="true" />
 								</div>
+								<h:messages id="msg" style="color: red" />
 								<div class="text-center">
 									<h:commandButton value="Cadastrar" class="btn btn-light"
-										action="#{loginBean.salvarLogin}"/>
+										action="#{loginBean.salvarLogin}" />
 								</div>
+
 							</h:form>
 						</div>
 					</div>
@@ -156,8 +162,8 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
 		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
 		crossorigin="anonymous"></script>
-		
-	<script src="resources/js/script.js"></script>	
+
+	<script src="resources/js/script.js"></script>
 
 </h:body>
 </html>

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="usuario", schema="public")
@@ -28,6 +29,18 @@ public class Usuario implements Serializable{
 	
 	@Column(nullable=false)
 	private Boolean administrador = false;
+	
+	@Transient
+	private String senhaConfirmacao;
+
+
+	public String getSenhaConfirmacao() {
+		return senhaConfirmacao;
+	}
+
+	public void setSenhaConfirmacao(String senhaConfirmacao) {
+		this.senhaConfirmacao = senhaConfirmacao;
+	}
 
 	public Long getId() {
 		return id;
