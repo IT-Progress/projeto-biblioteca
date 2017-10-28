@@ -13,6 +13,9 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
+
+import org.apache.commons.io.IOUtils;
 
 import dao.impl.LivroDao;
 import dao.impl.RelatorioDao;
@@ -35,7 +38,6 @@ public class LivroBean {
 	private String nomeLivroFiltrada;
 
 	private Livro livro;
-	
 
 	private Usuario usuario;
 	
@@ -47,6 +49,44 @@ public class LivroBean {
 	private List<Usuario> listUsuario;
 
 	private String textoBotao;
+	
+	private Part arquivoUpado;
+
+	public Part getArquivoUpado() {
+		return arquivoUpado;
+	}
+
+	public void setArquivoUpado(Part arquivoUpado) {
+		this.arquivoUpado = arquivoUpado;
+	}
+	
+	public String getNomeArquivo() {
+		String header = arquivoUpado.getHeader("content-disposition");
+		if (header == null)
+			return "";
+		for (String headerPart : header.split(";")) {
+			if (headerPart.trim().startsWith("filename")) {
+				return headerPart.substring(headerPart.indexOf('=') + 1).trim().replace("\"", "");
+			}
+		}
+		return "";
+	}
+
+	public String importa() {
+		try {
+			this.livro.setNomeArquivo(getNomeArquivo());
+			this.livro.setExtensaoArquivo(arquivoUpado.getContentType());
+
+			byte[] arquivoByte = IOUtils.toByteArray(arquivoUpado.getInputStream());
+			this.livro.setArquivo(arquivoByte);
+			salvar();
+
+		} catch (IOException e) {
+			adicionarMensagem("Erro ao enviar o arquivo " + e.getMessage(), FacesMessage.SEVERITY_ERROR);
+		}
+		return "livro";
+	}
+
 
 	public String getTextoBotao() {
 		if(livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
@@ -112,9 +152,19 @@ public class LivroBean {
 		if (!dao.save(livro)) {
 			adicionarMensagem("Erro ao cadastrar o Livro.", FacesMessage.SEVERITY_ERROR);
 		} else {
+			try {
+				this.livro.setNomeArquivo(getNomeArquivo());
+				this.livro.setExtensaoArquivo(arquivoUpado.getContentType());
 
-			adicionarMensagem("Livro salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-			listarLivro();
+				byte[] arquivoByte = IOUtils.toByteArray(arquivoUpado.getInputStream());
+				this.livro.setArquivo(arquivoByte);
+				adicionarMensagem("Livro salvo com sucesso.", FacesMessage.SEVERITY_INFO);
+				listarLivro();
+
+			} catch (IOException e) {
+				adicionarMensagem("Erro ao enviar o arquivo " + e.getMessage(), FacesMessage.SEVERITY_ERROR);
+			}
+			
 		}
 		return "livro";
 	}
@@ -270,5 +320,9 @@ public class LivroBean {
 		this.list = list;
 	}
 	
+	
+	public String novoUpload() {
+		return "cadastrarArquivo";
+	}
 	
 }

@@ -35,6 +35,15 @@ public class Livro implements Serializable{
 	@Column
 	@Enumerated(EnumType.STRING)
 	private SituacaoLivro situacao;
+	
+	@Column(name = "arquivo")
+	private byte[] arquivo;
+
+	@Column(name = "nome", length = 50)
+	private String nomeArquivo;
+
+	@Column(name = "extensao", length = 10)
+	private String extensaoArquivo;
 
 	public Long getId() {
 		return id;
@@ -82,6 +91,30 @@ public class Livro implements Serializable{
 
 	public void setSituacao(SituacaoLivro situacao) {
 		this.situacao = situacao;
+	}
+	
+	public byte[] getArquivo() {
+		return arquivo;
+	}
+
+	public void setArquivo(byte[] arquivo) {
+		this.arquivo = arquivo;
+	}
+
+	public String getNomeArquivo() {
+		return nomeArquivo;
+	}
+
+	public void setNomeArquivo(String nomeArquivo) {
+		this.nomeArquivo = nomeArquivo;
+	}
+
+	public String getExtensaoArquivo() {
+		return extensaoArquivo;
+	}
+
+	public void setExtensaoArquivo(String extensaoArquivo) {
+		this.extensaoArquivo = extensaoArquivo;
 	}
 
 	@Override
