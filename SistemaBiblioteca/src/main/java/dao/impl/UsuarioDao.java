@@ -29,7 +29,7 @@ public class UsuarioDao implements DAO<Usuario> {
 	}
 
 	public List<Usuario> findByName(String nome) {
-		Query query = manager.createQuery("Select u from Usuario u where u.nome like :pNome");
+		Query query = manager.createQuery("Select u from Usuario u where lower(u.nome) like lower(:pNome)");
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}

@@ -36,7 +36,7 @@ public class LivroDao implements DAO<Livro> {
 	}
 
 	public List<Livro> findByName(String nome) {
-		Query query = manager.createQuery("Select u from Livro u where u.nome like :pNome");
+		Query query = manager.createQuery("Select u from Livro u where lower(u.nome) like lower(:pNome)");
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}
@@ -79,7 +79,7 @@ public class LivroDao implements DAO<Livro> {
 
 	public List<Livro> findByString(String string) {
 		Query query = manager.createQuery(
-				"Select u from Livro u where (u.nome) like :pString OR u.autor like :pString OR u.categoria like :pString OR u.tag like :pString OR u.situacao like :pString");
+				"Select u from Livro u where lower(u.nome) like lower(:pString) OR lower(u.autor) like lower(:pString) OR lower(u.categoria) like lower(:pString) OR lower(u.tag) like lower(:pString) OR lower(u.situacao) like lower(:pString)");
 		query.setParameter("pString", "%" + string + "%");
 		return query.getResultList();
 	}

@@ -74,6 +74,8 @@ corTemplate {
 .form-control:focus {
 	border-color: #868e96;
 }
+
+#navBarSearchForm input[type=text]{width:385px !important;}
 </style>
 </h:head>
 
@@ -87,15 +89,18 @@ corTemplate {
 			</h:link>
 
 
-			<h:form class="form-inline m-0">
+			<h:form class="form-inline m-0" id="navBarSearchForm">
 
 				<div class="input-group" style="padding-left: 0 !important">
 					<h:inputText class="form-control" type="text" placeholder=""
-						value="#{livroBean.nomeLivroFiltrada}"></h:inputText>
+						value="#{livroBean.nomeLivroPesquisaGeral}"></h:inputText>
 
-					<span class="input-group-btn"> <h:commandButton
-							class="btn btn-danger" value="Pesquisar"
-							action="#{livroBean.pesquisar}" />
+					<span class="input-group-btn"> 
+					<h:commandButton
+							class="btn btn-danger" 
+							action="#{livroBean.pesquisar}"
+							value="Pesquisar">
+					</h:commandButton>
 					</span>
 				</div>
 
@@ -120,7 +125,7 @@ corTemplate {
 					</a>
 					<ul class="dropdown-menu pl-3" style="width: 12rem">
 						<li><a href="/SistemaBiblioteca/logadoADM/livro.xhtml"
-							style="color: black"><i class="fa fa-pencil fa-fw"
+							style="color: black" ><i class="fa fa-pencil fa-fw"
 								style="color: black"></i> Cadastrar livros</a></li>
 						<li><a href="/SistemaBiblioteca/logadoADM/usuario.xhtml"
 							style="color: black"><i class="fa fa-pencil fa-fw"
