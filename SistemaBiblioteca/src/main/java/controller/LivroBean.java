@@ -36,6 +36,7 @@ public class LivroBean {
 
 	private Livro livro;
 	
+	private String nomeLivroPesquisaGeral;
 
 	private Usuario usuario;
 	
@@ -47,6 +48,16 @@ public class LivroBean {
 	private List<Usuario> listUsuario;
 
 	private String textoBotao;
+	
+	
+
+	public String getNomeLivroPesquisaGeral() {
+		return nomeLivroPesquisaGeral;
+	}
+
+	public void setNomeLivroPesquisaGeral(String nomeLivroPesquisaGeral) {
+		this.nomeLivroPesquisaGeral = nomeLivroPesquisaGeral;
+	}
 
 	public String getTextoBotao() {
 		if(livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
@@ -144,6 +155,7 @@ public class LivroBean {
 		zerarLista();
 		if (!nomeLivroFiltrada.isEmpty()) {
 			list.addAll(dao.findByString(nomeLivroFiltrada));
+			
 		} else {
 			list.addAll(dao.findAll());
 			
@@ -154,13 +166,13 @@ public class LivroBean {
 
 	public String pesquisar() {
 		zerarLista();
-		if (!nomeLivroFiltrada.isEmpty()) {
-			list.addAll(dao.findByString(nomeLivroFiltrada));
-			nomeLivroFiltrada = null;
+		if (!nomeLivroPesquisaGeral.isEmpty()) {
+			list.addAll(dao.findByString(nomeLivroPesquisaGeral));
+			nomeLivroPesquisaGeral = null;
 			return "livro";	
 		} else {
 			list.addAll(dao.findAll());
-			nomeLivroFiltrada = null;
+			nomeLivroPesquisaGeral = null;
 			return "livro";
 		}
 		
