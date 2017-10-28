@@ -23,7 +23,6 @@ import model.CategoriaLivro;
 import model.Livro;
 import model.Relatorio;
 import model.SituacaoLivro;
-import model.Upload;
 import model.Usuario;
 
 @ApplicationScoped
@@ -169,6 +168,7 @@ public class LivroBean {
 				this.livro.setArquivo(arquivoByte);
 				adicionarMensagem("Livro salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 				listarLivro();
+				return "livro";
 
 			} catch (IOException e) {
 				adicionarMensagem("Erro ao enviar o arquivo " + e.getMessage(), FacesMessage.SEVERITY_ERROR);

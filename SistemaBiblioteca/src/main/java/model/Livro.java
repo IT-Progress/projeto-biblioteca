@@ -36,13 +36,13 @@ public class Livro implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private SituacaoLivro situacao;
 	
-	@Column(name = "arquivo")
+	@Column(name = "arquivo", nullable = true)
 	private byte[] arquivo;
 
-	@Column(name = "nome", length = 50)
+	@Column(name = "nome", nullable = true, length = 50)
 	private String nomeArquivo;
 
-	@Column(name = "extensao", length = 10)
+	@Column(name = "extensao", nullable = true, length = 10)
 	private String extensaoArquivo;
 
 	public Long getId() {
