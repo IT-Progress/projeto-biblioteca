@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,8 @@ import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 
 import dao.impl.LivroDao;
 import dao.impl.RelatorioDao;
@@ -17,6 +21,15 @@ import dao.impl.UsuarioDao;
 import model.Livro;
 import model.Relatorio;
 import model.Usuario;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 @ApplicationScoped
 @Named
@@ -195,6 +208,31 @@ public class RelatorioBean {
 		FacesMessage fm = new FacesMessage(mensagem);
 		fm.setSeverity(tipoMensagem);
 		fc.addMessage(null, fm);
+
+	}
+	
+	public void imprimirRelatorio() throws JRException, IOException {
+		// compilacao do JRXML
+		FacesContext context = FacesContext.getCurrentInstance();
+	    String caminho = context.getExternalContext().getRealPath("reports/relatorio.jrxml");
+	    
+		if (new File(caminho).exists() == false) {
+			return;
+		}
+		JasperDesign jasperDesign = JRXmlLoader.load(caminho);
+		JasperReport report = JasperCompileManager.compileReport(jasperDesign);
+
+		JasperPrint print = JasperFillManager.fillReport(report, null,
+				new JRBeanCollectionDataSource(listRelatorio));
+
+		HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
+		ServletOutputStream servletOutputStream = response.getOutputStream();
+		response.setContentType("application/pdf");
+		response.setHeader("Content-Disposition", "attachment; filename=relatorio.pdf");
+
+		JasperExportManager.exportReportToPdfStream(print, servletOutputStream);
+
+		context.responseComplete();
 
 	}
 

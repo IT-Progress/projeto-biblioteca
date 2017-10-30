@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="concessionarias" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="27024813-6f17-4fc3-90c1-fa2fad44b9ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	
+	<field name="usuario" class="java.lang.String"/>
+	<field name="livro" class="java.lang.String"/>
+	<field name="id" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="39" splitType="Stretch">
+			<frame>
+				<reportElement uuid="d23a8d37-0b8c-43da-814e-300d73898bad" x="0" y="0" width="555" height="39"/>
+				<staticText>
+					<reportElement uuid="9ed62e55-b349-486a-a949-e32ffc3c6281" x="0" y="0" width="368" height="39"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[LISTA DE RELATORIO]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement uuid="6b520b6b-a22a-4144-ac63-3850b3dc61e3" x="455" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0b07b415-f39e-4d79-98ed-a938b8945d55" mode="Opaque" x="0" y="0" width="104" height="20" forecolor="#00CCCC" backcolor="#CCFFCC"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8207fd72-8a64-4e3f-bfde-813c12204805" mode="Opaque" x="104" y="0" width="448" height="20" forecolor="#00CCCC" backcolor="#CCFFCC"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[relatorio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="dd6cc97f-5b3b-436f-a94b-a5d23d08061d" x="0" y="0" width="104" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dfeaac16-be27-476b-ab46-0b3e36e621ea" x="104" y="0" width="448" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{livro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dfeaac16-be27-476b-ab46-0b3e36e621ea" x="204" y="0" width="448" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="42" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement uuid="17337249-6019-4c11-8a14-5a711d967b1e" x="368" y="21" width="187" height="21"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["Total de páginas: "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="68f73859-ce8a-4997-b899-f67e7654fc52" x="432" y="1" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="59c9f063-6022-48fe-92c4-666a3299accc" x="512" y="1" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
