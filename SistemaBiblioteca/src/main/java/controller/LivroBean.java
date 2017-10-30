@@ -1,6 +1,9 @@
 package controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +18,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import dao.impl.LivroDao;
@@ -174,7 +178,24 @@ public class LivroBean {
 
 	public String visualizar(Livro livro) {
 		this.livro = dao.findById(livro.getId());
+		escreverArquivoDiretorio(livro);
+		
 		return "exibirLivro";
+	}
+	
+	private void escreverArquivoDiretorio(Livro livro) {
+		FacesContext fc = FacesContext.getCurrentInstance();
+		ExternalContext ec = fc.getExternalContext();
+		String absoluteWebPath = ec.getRealPath("/");
+		String destPath = absoluteWebPath + "/resources/image/" + livro.getNomeArquivo();
+		File destFile = new File(destPath);
+		
+		InputStream is = new ByteArrayInputStream(livro.getArquivo());
+		try {
+			FileUtils.copyInputStreamToFile(is, destFile);
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 
 	public String remover(Livro livro) {
