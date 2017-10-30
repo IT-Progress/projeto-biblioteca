@@ -12,15 +12,15 @@
 	<h:body>
 		<div class="row">
 			<div class="col-md-12 form-group">
-				<div class="py-5">
+				<div class="pt-2">
 					<div class="container">
 						<div class="row">
 						<div class="col-md-6">
 							<h1 style="font-family: 'Electrolize', sans-serif"
-								class="py-4 col-md-12">Editar livro</h1>
+								class="py-2 col-md-12">Editar livro</h1>
 							<div class="col-md-12">
 								<h:form class="">
-									<div class="form-grou">
+									<div class="form-group">
 										<label>Nome do Livro</label>
 										<h:inputText id="campoNomeLivro" name="nomeLivro"
 											class="form-control" value="#{livroBean.livro.nome}"
@@ -48,7 +48,7 @@
 									</div>
 
 									<div class="form-group">
-										<label>TAG(Subcategoria)</label>
+										<label>TAG</label>
 										<h:inputText id="campoTag" name="nomeTag" class="form-control"
 											value="#{livroBean.livro.tag}" required="false" label="TAG"
 											data-role="tagsinput" />
@@ -76,7 +76,7 @@
 				<h:form enctype="multipart/form-data" prependId="false">
 					<div class="row">
 						<h1 style="font-family: 'Electrolize', sans-serif"
-							class="py-4">Cadastro de Arquivos</h1>
+							class="py-2">Cadastro de Arquivos</h1>
 					</div>
 					<div class="form-group">
 						<h:graphicImage library="image" name="#{livroBean.livro.nomeArquivo}" rendered="#{not empty livroBean.livro.nomeArquivo}"
