@@ -160,20 +160,9 @@ public class LivroBean {
 		if (!dao.save(livro)) {
 			adicionarMensagem("Erro ao cadastrar o Livro.", FacesMessage.SEVERITY_ERROR);
 		} else {
-			try {
-				this.livro.setNomeArquivo(getNomeArquivo());
-				this.livro.setExtensaoArquivo(arquivoUpado.getContentType());
-
-				byte[] arquivoByte = IOUtils.toByteArray(arquivoUpado.getInputStream());
-				this.livro.setArquivo(arquivoByte);
-				adicionarMensagem("Livro salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-				listarLivro();
-				return "livro";
-
-			} catch (IOException e) {
-				adicionarMensagem("Erro ao enviar o arquivo " + e.getMessage(), FacesMessage.SEVERITY_ERROR);
-			}
 			
+			adicionarMensagem("Livro salvo com sucesso.", FacesMessage.SEVERITY_INFO);
+			listarLivro();
 		}
 		return "livro";
 	}

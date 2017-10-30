@@ -34,6 +34,14 @@ public class UsuarioDao implements DAO<Usuario> {
 		return query.getResultList();
 	}
 	
+	public boolean findByEmail(String email) {
+		if(email.equals(manager.createQuery("Select u from Usuario u where lower(u.email)"))) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	public List<Usuario> findByName2(String nome) {
 		Query query = manager.createQuery("Select u from Relatorio u where u.livro_id like :pNome");
 		query.setParameter("pNome", "%" + nome + "%");

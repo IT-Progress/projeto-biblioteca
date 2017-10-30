@@ -71,7 +71,9 @@ public class LoginBean {
 	}
 
 	public String salvarLogin() {
-
+		if(!dao.findByEmail(usuario1.getEmail())){
+			
+		}
 		String senha = usuario1.getSenha();
 		String senhaConfirmacao = usuario1.getSenhaConfirmacao();
 		if (senha.equals(senhaConfirmacao)) {
