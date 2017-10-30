@@ -75,7 +75,8 @@ public class LoginBean {
 		String senhaConfirmacao = usuario1.getSenhaConfirmacao();
 		String email = usuario1.getEmail();
 		
-		if(dao.findByEmail(email)) {
+		Usuario usuarioValidacaoEmail = dao.findByEmail(email);
+		if(usuarioValidacaoEmail != null) {
 			FacesMessage msg = new FacesMessage("O email já está cadastrado.");
 			FacesContext.getCurrentInstance().addMessage("erro", msg);
 		} else

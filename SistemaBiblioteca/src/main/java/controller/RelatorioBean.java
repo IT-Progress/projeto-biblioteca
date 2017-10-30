@@ -3,6 +3,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -20,6 +21,7 @@ import dao.impl.RelatorioDao;
 import dao.impl.UsuarioDao;
 import model.Livro;
 import model.Relatorio;
+import model.RelatorioVo;
 import model.Usuario;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -223,7 +225,7 @@ public class RelatorioBean {
 		JasperReport report = JasperCompileManager.compileReport(jasperDesign);
 
 		JasperPrint print = JasperFillManager.fillReport(report, null,
-				new JRBeanCollectionDataSource(listRelatorio));
+				new JRBeanCollectionDataSource(getListaVo()));
 
 		HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
 		ServletOutputStream servletOutputStream = response.getOutputStream();
@@ -234,6 +236,23 @@ public class RelatorioBean {
 
 		context.responseComplete();
 
+	}
+
+	private List<RelatorioVo> getListaVo() {
+		
+		List<RelatorioVo> novaLista = new ArrayList<RelatorioVo>();
+		for (Relatorio relatorio:listRelatorio) {
+			RelatorioVo vo = new RelatorioVo();
+			vo.setDataDeDevolucao(relatorio.getDataDeDevolucao());
+			vo.setDataDeEmprestimo(relatorio.getDataDeEmprestimo());
+			vo.setId(relatorio.getId());
+			vo.setNomeLivro(relatorio.getLivro().getNome());
+			vo.setNomeUsuario(relatorio.getUsuario().getNome());
+			novaLista.add(vo);
+		}
+		
+		
+		return novaLista;
 	}
 
 }

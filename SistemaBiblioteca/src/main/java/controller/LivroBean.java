@@ -174,17 +174,17 @@ public class LivroBean {
 	public String editar(Livro livro) {
 		this.livro = dao.findById(livro.getId());
 		return "editarLivro";
-	}
+	}		
 
 	public String visualizar(Livro livro) {
-		if(dao.findByArquivo(livro.getArquivo()).isEmpty()) {
-			return "exibirLivro2";
-		}else {
 		this.livro = dao.findById(livro.getId());
-		escreverArquivoDiretorio(livro);
+		
+		if (this.livro.getArquivo() != null) {
+			escreverArquivoDiretorio(livro);
+		}
 		
 		return "exibirLivro";
-		}
+		
 	}
 	
 	private void escreverArquivoDiretorio(Livro livro) {

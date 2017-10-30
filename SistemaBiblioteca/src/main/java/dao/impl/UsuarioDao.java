@@ -17,7 +17,7 @@ public class UsuarioDao implements DAO<Usuario> {
 	public List<Usuario> findAll() {
 		return manager.createQuery("Select u from Usuario u").getResultList();
 	}
-	
+
 	public List<Usuario> findAll2() {
 		return manager.createQuery("Select u from Relatorio u").getResultList();
 	}
@@ -33,15 +33,18 @@ public class UsuarioDao implements DAO<Usuario> {
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}
-	
-	public Boolean findByEmail(String email) {
-		Query query = manager.createQuery("Select u from Usuario u where lower(u.email) like lower(:pEmail)");
-		query.setParameter("pEmail", email);
-		if(query.getSingleResult() != null) {
-			return true;
-		} else return false;
+
+	public Usuario findByEmail(String email) {
+		try {
+			Query query = manager.createQuery("Select u from Usuario u where lower(u.email) like lower(:pEmail)");
+			query.setParameter("pEmail", email);
+			return (Usuario) query.getSingleResult();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		return null;
 	}
-	
+
 	public List<Usuario> findByName2(String nome) {
 		Query query = manager.createQuery("Select u from Relatorio u where u.livro_id like :pNome");
 		query.setParameter("pNome", "%" + nome + "%");
@@ -74,12 +77,11 @@ public class UsuarioDao implements DAO<Usuario> {
 
 	}
 
-
 	public Usuario autenticacao(String email, String senha) {
 		Query query = manager.createQuery("Select u from Usuario u where u.email = :pEmail and u.senha = :pSenha");
 		query.setParameter("pEmail", email);
-		query.setParameter("pSenha", senha);	
+		query.setParameter("pSenha", senha);
 		return (Usuario) query.getSingleResult();
 	}
-	
+
 }

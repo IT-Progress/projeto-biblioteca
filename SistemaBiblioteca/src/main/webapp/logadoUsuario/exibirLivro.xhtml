@@ -15,7 +15,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4">
-						<h:graphicImage library="image" name="#{livroBean.livro.nomeArquivo}"
+						<h:graphicImage library="image" name="#{livroBean.livro.nomeArquivo}" rendered="#{not empty livroBean.livro.nomeArquivo}"
+							class="py-4 rounded "
+							style="height:400px;max-width:100%;" />
+							
+						<h:graphicImage library="image" name="BookNotPictured.jpg" rendered="#{empty livroBean.livro.nomeArquivo}"
 							class="py-4 rounded "
 							style="height:400px;max-width:100%;" />
 					</div>
