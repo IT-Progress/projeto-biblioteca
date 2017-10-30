@@ -55,7 +55,23 @@ public class LivroBean {
 
 	private String textoBotao;
 	
+	private String corStatus;
+	
 	private Part arquivoUpado;
+
+	public String getCorStatus() {
+		if(livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
+			corStatus = "success";
+		} else {
+			corStatus = "danger";
+		}
+		
+		return corStatus;
+	}
+
+	public void setCorStatus(String corStatus) {
+		this.corStatus = corStatus;
+	}
 
 	public Part getArquivoUpado() {
 		return arquivoUpado;

@@ -14,12 +14,7 @@
 			<div class="pt-3">
 				<div class="container">
 					<div class="row">
-						<h1 style="font-family: 'Electrolize', sans-serif" class="py-4">Cadastro
-							de Usuário</h1>
-
-
-
-
+						<h1 style="font-family: 'Electrolize', sans-serif" class="py-4" >#{usuarioBean.acaoUsuario} Usuário</h1>
 						<div class="col-md-12">
 							<h:form class="">
 								<div class="form-group col-md-6">
@@ -50,8 +45,10 @@
 									</label>
 								</div>
 								<div class="col-md-6 py-4">
-									<h:commandButton class="btn btn-danger" value="Salvar"
+									<h:commandButton class="btn btn-danger mr-1" value="Salvar"
 										action="#{usuarioBean.salvar}" />
+									<h:commandButton class="btn btn-dark" value="Voltar"
+										action="usuario" immediate="true" />
 								</div>
 							</h:form>
 						</div>

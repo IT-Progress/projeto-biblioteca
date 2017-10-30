@@ -27,12 +27,26 @@ public class UsuarioBean {
 	private String nomeUsuarioFiltrado;
 
 	private Usuario usuario;
+	
+	private String acaoUsuario;
 
 	@PostConstruct
 	public void init() {
 		usuario = new Usuario();
 		list = new ArrayList<Usuario>();
 	}
+
+	public String getAcaoUsuario() {
+		return acaoUsuario;
+	}
+
+
+
+	public void setAcaoUsuario(String acaoUsuario) {
+		this.acaoUsuario = acaoUsuario;
+	}
+
+
 
 	private void zerarLista() {
 		list = new ArrayList<Usuario>();
@@ -64,6 +78,7 @@ public class UsuarioBean {
 
 	public String novo() {
 		usuario = new Usuario();
+		this.acaoUsuario = "Cadastro de";
 		return "cadastrarUsuario";
 	}
 
@@ -82,6 +97,7 @@ public class UsuarioBean {
 
 	public String editar(Usuario usuario) {
 		this.usuario = dao.findById(usuario.getId());
+		this.acaoUsuario = "Edição de";
 		return "cadastrarUsuario";
 	}
 
