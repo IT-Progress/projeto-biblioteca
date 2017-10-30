@@ -35,6 +35,12 @@ public class LivroDao implements DAO<Livro> {
 		return (Livro) query.getSingleResult();
 	}
 
+	public List<Livro> findByArquivo(byte[] arquivo){
+		Query query = manager.createQuery("Select u from Livro u where u.arquivo = :pArquivo");
+		query.setParameter("pArquivo", arquivo);
+		return query.getResultList();
+	}
+	
 	public List<Livro> findByName(String nome) {
 		Query query = manager.createQuery("Select u from Livro u where lower(u.nome) like lower(:pNome)");
 		query.setParameter("pNome", "%" + nome + "%");
