@@ -79,26 +79,29 @@ public class LoginBean {
 		if(usuarioValidacaoEmail != null) {
 			FacesMessage msg = new FacesMessage("O email já está cadastrado.");
 			FacesContext.getCurrentInstance().addMessage("erro", msg);
-		} else
-		if (senha.equals(senhaConfirmacao)) {
-			
-			Usuario novoUsuario = new Usuario();
-			novoUsuario.setAdministrador(false);
-			novoUsuario.setEmail(usuario1.getEmail());
-			novoUsuario.setNome(usuario1.getNome());
-			novoUsuario.setSenha(usuario1.getSenha());
-			if (!dao.save(novoUsuario)) {
-				FacesMessage msg = new FacesMessage("Usuário NÃO cadastrado!");
-				FacesContext.getCurrentInstance().addMessage("erro", msg);
+		} else 
+		
+			if (senha.equals(senhaConfirmacao)) {
+				
+				Usuario novoUsuario = new Usuario();
+				novoUsuario.setAdministrador(false);
+				novoUsuario.setEmail(usuario1.getEmail());
+				novoUsuario.setNome(usuario1.getNome());
+				novoUsuario.setSenha(usuario1.getSenha());
+				if (!dao.save(novoUsuario)) {
+					FacesMessage msg = new FacesMessage("Usuário NÃO cadastrado!");
+					FacesContext.getCurrentInstance().addMessage("erro", msg);
+				} else {
+					FacesMessage msgCadastrado = new FacesMessage("Cadastrado com sucesso!");
+					FacesContext.getCurrentInstance().addMessage("erro", msgCadastrado);
+				}
 			} else {
-				FacesMessage msgCadastrado = new FacesMessage("Cadastrado com sucesso!");
-				FacesContext.getCurrentInstance().addMessage("erro", msgCadastrado);
+				FacesMessage senhaErrada = new FacesMessage("Senhas NÃO coincidem!");
+				FacesContext.getCurrentInstance().addMessage("erro", senhaErrada);
 			}
-		} else {
-			FacesMessage senhaErrada = new FacesMessage("Senhas NÃO coincidem!");
-			FacesContext.getCurrentInstance().addMessage("erro", senhaErrada);
-		}
+		
 		return "login";
+	
 	}
 
 	public void adicionarMensagem(String mensagem, Severity tipoMensagem) {

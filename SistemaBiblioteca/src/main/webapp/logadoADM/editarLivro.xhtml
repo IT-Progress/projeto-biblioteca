@@ -10,68 +10,104 @@
 </h:head>
 <ui:composition template="template.xhtml">
 	<h:body>
-		<div class="col-md-12 form-group">
-			
+		<div class="row">
+			<div class="col-md-12 form-group">
 				<div class="py-5">
 					<div class="container">
 						<div class="row">
-							<h1 style="font-family: 'Electrolize', sans-serif" class="py-4">Editar livro</h1>
+						<div class="col-md-6">
+							<h1 style="font-family: 'Electrolize', sans-serif"
+								class="py-4 col-md-12">Editar livro</h1>
 							<div class="col-md-12">
-							<h:form class="">
-								<div class="form-group col-md-6">
-									<label>Nome do Livro</label>
-									<h:inputText id="campoNomeLivro" name="nomeLivro"
-										class="form-control" value="#{livroBean.livro.nome}"
-										required="true" label="Nome do Livro" />
-									<h:message for="campoNomeLivro" style="color:red" />
-								</div>
-								<div class="form-group col-md-6">
-									<label>Nome do autor</label>
-									<h:inputText id="campoNomeAutor" name="nomeAutor"
-										class="form-control" value="#{livroBean.livro.autor}"
-										required="true" label="Nome do Autor" />
-									<h:message for="campoNomeAutor" style="color:red" />
-								</div>
+								<h:form class="">
+									<div class="form-grou">
+										<label>Nome do Livro</label>
+										<h:inputText id="campoNomeLivro" name="nomeLivro"
+											class="form-control" value="#{livroBean.livro.nome}"
+											required="true" label="Nome do Livro" />
+										<h:message for="campoNomeLivro" style="color:red" />
+									</div>
+									<div class="form-group">
+										<label>Nome do autor</label>
+										<h:inputText id="campoNomeAutor" name="nomeAutor"
+											class="form-control" value="#{livroBean.livro.autor}"
+											required="true" label="Nome do Autor" />
+										<h:message for="campoNomeAutor" style="color:red" />
+									</div>
 
-								<div class="form-group col-md-6">
-									<label>Categoria </label><br></br>
-									<h:selectOneMenu value="#{livroBean.livro.categoria}"
-										id="campo-categoria" requiredMessage="Categoria obrigatoria"
-										label="Categoria" required="true" class="form-control">
-										<f:selectItem itemValue="" itemLabel="Selecione uma Categoria" />
-										<f:selectItems value="#{livroBean.categorias}" var="c"
-											itemLabel="#{c.categoria}" itemValue="#{c}" />
-									</h:selectOneMenu>
-								</div>
+									<div class="form-group">
+										<label>Categoria </label><br></br>
+										<h:selectOneMenu value="#{livroBean.livro.categoria}"
+											id="campo-categoria" requiredMessage="Categoria obrigatoria"
+											label="Categoria" required="true" class="form-control">
+											<f:selectItem itemValue=""
+												itemLabel="Selecione uma Categoria" />
+											<f:selectItems value="#{livroBean.categorias}" var="c"
+												itemLabel="#{c.categoria}" itemValue="#{c}" />
+										</h:selectOneMenu>
+									</div>
 
-								<div class="form-group col-md-6">
-									<label>TAG(Subcategoria)</label>
-									<h:inputText id="campoTag" name="nomeTag" class="form-control"
-										value="#{livroBean.livro.tag}" required="false" label="TAG"
-										data-role="tagsinput" />
-									<h:message for="campoTag" style="color:red" />
-								</div>
+									<div class="form-group">
+										<label>TAG(Subcategoria)</label>
+										<h:inputText id="campoTag" name="nomeTag" class="form-control"
+											value="#{livroBean.livro.tag}" required="false" label="TAG"
+											data-role="tagsinput" />
+										<h:message for="campoTag" style="color:red" />
+									</div>
 
-								<div class="form-group col-md-6">
-									<label>Situação </label><br></br>
-									<h:selectOneMenu value="#{livroBean.livro.situacao}"
-										id="campo-situacao" requiredMessage="Categoria obrigatoria"
-										label="Situação" required="true" class="form-control">
-										<f:selectItem itemValue="" itemLabel="Selecione uma Situação" />
-										<f:selectItems value="#{livroBean.situacoesLivro}" var="s"
-											itemLabel="#{s.situacaoLivros}" itemValue="#{s}" />
-									</h:selectOneMenu>
-								</div>
-								<div class="col-md-6">
-								<h:commandButton class="btn btn-danger" value="Salvar"
-									action="#{livroBean.salvar}" />
-								</div>
-							</h:form>
+									<div class="form-group">
+										<label>Situação </label><br></br>
+										<h:selectOneMenu value="#{livroBean.livro.situacao}"
+											id="campo-situacao" requiredMessage="Categoria obrigatoria"
+											label="Situação" required="true" class="form-control">
+											<f:selectItem itemValue="" itemLabel="Selecione uma Situação" />
+											<f:selectItems value="#{livroBean.situacoesLivro}" var="s"
+												itemLabel="#{s.situacaoLivros}" itemValue="#{s}" />
+										</h:selectOneMenu>
+									</div>
+									<div class="col-md-6">
+										<h:commandButton class="btn btn-danger" value="Salvar"
+											action="#{livroBean.salvar}" />
+									</div>
+								</h:form>
+							</div>
+						</div>
+						<div class="col-md-6 form-group">
+				<h:form enctype="multipart/form-data" prependId="false">
+					<div class="row">
+						<h1 style="font-family: 'Electrolize', sans-serif"
+							class="py-4">Cadastro de Arquivos</h1>
+					</div>
+					<div class="form-group">
+						<h:graphicImage library="image" name="#{livroBean.livro.nomeArquivo}" rendered="#{not empty livroBean.livro.nomeArquivo}"
+ 							class="py-4 rounded "
+ 							style="height:330px;max-width:100%;" />
+ 							
+ 						<h:graphicImage library="image" name="BookNotPictured.jpg" rendered="#{empty livroBean.livro.nomeArquivo}"
+  							class="py-4 rounded "
+  							style="height:330px;max-width:100%;" />
+						<br/>
+						<h:outputLabel value="Arquivo:" for="campo-arquivo" />
+						<h:inputFile id="campo-arquivo" value="#{livroBean.arquivoUpado}"
+							required="true" label="Arquivo"
+							requiredMessage="Arquivo não selecionado!!" 
+							class="form-control-file"/>
+						<h:message for="campo-arquivo" style="color:red" />
+					</div>
+
+					<h:commandButton value="Upload" action="#{livroBean.importa}"
+						class="btn btn-danger" />
+<!-- 					<h:commandButton value="Voltar" action="livro" -->
+<!-- 						class="btn btn-secondary" immediate="true" /> -->
+
+				</h:form>
+			</div>
+		</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+			
 		<h:outputScript name="bootstrap.min.js" library="js" async="true"
 			type="application/javascript" />
 	</h:body>

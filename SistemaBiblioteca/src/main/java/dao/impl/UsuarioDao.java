@@ -43,6 +43,7 @@ public class UsuarioDao implements DAO<Usuario> {
 			System.err.println(e.getMessage());
 		}
 		return null;
+
 	}
 
 	public List<Usuario> findByName2(String nome) {

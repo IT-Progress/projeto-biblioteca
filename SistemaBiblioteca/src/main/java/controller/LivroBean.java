@@ -77,7 +77,7 @@ public class LivroBean {
 		return "";
 	}
 
-	public String importa() {
+	public Boolean importa() {
 		try {
 			this.livro.setNomeArquivo(getNomeArquivo());
 			this.livro.setExtensaoArquivo(arquivoUpado.getContentType());
@@ -89,7 +89,7 @@ public class LivroBean {
 		} catch (IOException e) {
 			adicionarMensagem("Erro ao enviar o arquivo " + e.getMessage(), FacesMessage.SEVERITY_ERROR);
 		}
-		return "livro";
+		return true;
 	}
 
 	public String getNomeLivroPesquisaGeral() {
@@ -348,7 +348,7 @@ public class LivroBean {
 	
 	
 	public String novoUpload() {
-		return "cadastrarArquivo";
+		return "editarLivro";
 	}
 	
 }
