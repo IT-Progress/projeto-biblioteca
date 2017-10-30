@@ -71,11 +71,14 @@ public class LoginBean {
 	}
 
 	public String salvarLogin() {
-		if(!dao.findByEmail(usuario1.getEmail())){
-			
-		}
 		String senha = usuario1.getSenha();
 		String senhaConfirmacao = usuario1.getSenhaConfirmacao();
+		String email = usuario1.getEmail();
+		
+		if(dao.findByEmail(email)) {
+			FacesMessage msg = new FacesMessage("O email já está cadastrado.");
+			FacesContext.getCurrentInstance().addMessage("erro", msg);
+		} else
 		if (senha.equals(senhaConfirmacao)) {
 			
 			Usuario novoUsuario = new Usuario();

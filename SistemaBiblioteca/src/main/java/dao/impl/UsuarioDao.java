@@ -34,12 +34,12 @@ public class UsuarioDao implements DAO<Usuario> {
 		return query.getResultList();
 	}
 	
-	public boolean findByEmail(String email) {
-		if(email.equals(manager.createQuery("Select u from Usuario u where lower(u.email)"))) {
+	public Boolean findByEmail(String email) {
+		Query query = manager.createQuery("Select u from Usuario u where lower(u.email) like lower(:pEmail)");
+		query.setParameter("pEmail", email);
+		if(query.getSingleResult() != null) {
 			return true;
-		}else {
-			return false;
-		}
+		} else return false;
 	}
 	
 	public List<Usuario> findByName2(String nome) {
