@@ -4,6 +4,8 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	
+	<field name="dataDeDevolucao" class="java.util.Date"/>
+	<field name="dataDeEmprestimo" class="java.util.Date"/>
 	<field name="usuario" class="java.lang.String"/>
 	<field name="livro" class="java.lang.String"/>
 	<field name="id" class="java.lang.Long"/>
@@ -50,7 +52,7 @@
 	<detail>
 		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement uuid="dd6cc97f-5b3b-436f-a94b-a5d23d08061d" x="0" y="0" width="104" height="20"/>
+				<reportElement uuid="dd6cc97f-5b3b-436f-a94b-a5d23d08061d" x="44" y="0" width="104" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
@@ -63,6 +65,16 @@
 				<reportElement uuid="dfeaac16-be27-476b-ab46-0b3e36e621ea" x="204" y="0" width="448" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dfeaac16-be27-476b-ab46-0b3e36e621ea" x="354" y="0" width="448" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dataDeEmprestimo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dfeaac16-be27-476b-ab46-0b3e36e621ea" x="454" y="0" width="448" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dataDeDevolucao}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
