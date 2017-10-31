@@ -245,8 +245,8 @@ public class RelatorioBean {
 			vo.setDataDeDevolucao(relatorio.getDataDeDevolucao());
 			vo.setDataDeEmprestimo(relatorio.getDataDeEmprestimo());
 			vo.setId(relatorio.getId());
-			vo.setNomeLivro(relatorio.getLivro().getNome());
-			vo.setNomeUsuario(relatorio.getUsuario().getNome());
+			vo.setLivro(relatorio.getLivro().getNome());
+			vo.setUsuario(relatorio.getUsuario().getNome());
 			novaLista.add(vo);
 		}
 		
