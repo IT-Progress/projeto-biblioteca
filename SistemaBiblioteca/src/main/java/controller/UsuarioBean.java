@@ -84,7 +84,6 @@ public class UsuarioBean {
 		} else {
 
 			adicionarMensagem("Usuário salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-			nomeUsuarioFiltrado = this.usuario.getNome();
 			listarUsuario();
 		}
 		return "usuario";
