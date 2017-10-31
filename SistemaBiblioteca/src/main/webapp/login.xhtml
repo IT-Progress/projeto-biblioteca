@@ -56,6 +56,16 @@ formularioLogin {
 logoDB1 {
 	width: 40%;
 }
+table {
+	border-collapse:
+}
+tbody {
+	display:inline-flex;
+}
+tr {
+    padding: 1rem;
+}
+
 </style>
 
 </h:head>
@@ -65,8 +75,8 @@ logoDB1 {
 	<div>
 		<div
 			style="background-color: rgba(255, 255, 255, 0.85); padding: 8rem 0; width: 48.5%; margin-top: 12.5rem; position: absolute"></div>
-		<div class="container" style="margin: auto; z-index: 900">
-			<div class="row">
+		<div class="container" style="margin: auto; z-index: 2">
+			<div class="row" style="width:100%">
 				<div style="margin: auto; display: flex;">
 
 					<div class="py-5; px-5" style="margin-top: 9.25rem; z-index: 1">
@@ -82,22 +92,22 @@ logoDB1 {
 						<div class="card-body" style="margin-top: 5.4rem">
 							<h3 class="mb-4 text-center"
 								style="font-family: 'Electrolize', sans-serif;">Login</h3>
-							<h:form class="formularioLogin">
-								<div class="form-group text-center">
+							<h:form class="formularioLogin" >
+								<div class="form-group text-center" style="width:100%">
 									<label>Email:</label>
 									<h:inputText id="campoEmailLogin" class="form-control"
 										value="#{loginBean.usuario1.email}" required="true"
-										label="Email" />
-									<h:message for="campoEmailLogin" style="color:red" />
+										label="Email" requiredMessage="O campo email deve ser preenchido."/>
+									
 								</div>
-								<div class="form-group text-center">
+								<div class="form-group text-center" style="width:100%">
 									<label>Senha:</label>
 									<h:inputSecret id="campoSenhaLogin" class="form-control"
 										value="#{loginBean.usuario1.senha}" required="true"
-										label="Senha" />
-									<h:message for="campoSenhaLogin" style="color:red" />
+										label="Senha" requiredMessage="O campo senha deve ser preenchido."/>
+									
 								</div>
-								<div class="text-center">
+								<div class="text-center">									
 									<h:commandButton value="Entrar" class="btn btn-light"
 										action="#{loginBean.autenticar}" />
 								</div>
@@ -115,39 +125,44 @@ logoDB1 {
 								<div class="form-group text-center">
 									<label>Nome:</label>
 									<h:inputText id="campoNomeCadastro" class="form-control"
-										value="#{loginBean.usuario1.nome}" required="true" />
-									<h:message for="campoNomeCadastro" style="color:red" />
+										value="#{loginBean.usuario1.nome}" required="true" requiredMessage="O campo nome deve ser preenchido." />
+									
 								</div>
 								<div class="form-group text-center">
 									<label>Email:</label>
 									<h:inputText id="campoEmailCadastro" class="form-control"
-										value="#{loginBean.usuario1.email}" required="true" />
-									<h:message for="campoEmailCadastro" style="color:red" />
+										value="#{loginBean.usuario1.email}" required="true" requiredMessage="O campo email deve ser preenchido."/>
+									
 								</div>
 								<div class="form-group text-center">
 									<label>Senha:</label>
 									<h:inputSecret id="campoSenhaCadastro" class="form-control"
-										value="#{loginBean.usuario1.senha}" required="true" />
-									<h:message for="campoSenhaCadastro" style="color:red" />
+										value="#{loginBean.usuario1.senha}" required="true" requiredMessage="O campo senha deve ser preenchido."/>
+									
 								</div>
 								<div class="form-group text-center">
 									<label>Confirmação da Senha:</label>
 									<h:inputSecret id="campoSenhaCadastroConfirm"
 										class="form-control"
-										value="#{loginBean.usuario1.senhaConfirmacao}" required="true" />
+										value="#{loginBean.usuario1.senhaConfirmacao}" required="true" requiredMessage="O campo confirmação de senha deve ser preenchido."/>
 								</div>
-								<h:messages id="msg" style="color: red" />
+								
 								<div class="text-center">
 									<h:commandButton value="Cadastrar" class="btn btn-light"
 										action="#{loginBean.salvarLogin}" />
 								</div>
 
 							</h:form>
+							
 						</div>
 					</div>
 				</div>
 			</div>
+			<div style="width:50%;right:5.75rem;position:absolute;z-index:3;bottom:10;background-color:rgba(255, 255, 255, 0.85);border-radius:0.25rem">
+				<h:messages layout="table" id="msg" style="color: red;"/>
+			</div>
 		</div>
+		
 	</div>
 
 

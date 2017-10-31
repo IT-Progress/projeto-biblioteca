@@ -1,7 +1,6 @@
 package dao.impl;
 
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -9,15 +8,12 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import controller.RelatorioBean;
 import dao.DAO;
 import dao.Transactional;
 import model.Livro;
 import model.Relatorio;
 import model.SituacaoLivro;
 import model.Usuario;
-
-import model.SituacaoLivro;
 
 
 public class LivroDao implements DAO<Livro> {
