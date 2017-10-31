@@ -58,9 +58,17 @@
 								<h:column>
 									<f:facet name="header">Usuário</f:facet>#{rel.usuario.nome}</h:column>
 								<h:column>
-									<f:facet name="header">Data de Empréstimo</f:facet>#{rel.dataDeEmprestimo}</h:column>
+									<f:facet name="header">Data de Empréstimo</f:facet>
+									<h:outputText value="#{rel.dataDeEmprestimo}">
+									<f:convertDateTime pattern="dd/MM/yyyy" />
+									</h:outputText>
+								</h:column>
 								<h:column>
-									<f:facet name="header">Data de Devolução</f:facet>#{rel.dataDeDevolucao}</h:column>
+									<f:facet name="header">Data de Devolução</f:facet>
+									<h:outputText value="#{rel.dataDeDevolucao}">
+									<f:convertDateTime pattern="dd/MM/yyyy" />
+									</h:outputText>
+								</h:column>
 								<h:column>
 									<div class="btn-group" role="group">
 										<f:facet name="header">Ações</f:facet>
