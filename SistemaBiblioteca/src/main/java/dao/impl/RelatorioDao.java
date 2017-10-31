@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import dao.DAO;
+import model.Livro;
 import model.Relatorio;
 
 public class RelatorioDao implements DAO<Relatorio>{
@@ -48,8 +49,13 @@ public class RelatorioDao implements DAO<Relatorio>{
 	}
 
 	public boolean delete(Long id) {
-		// TODO Auto-generated method stub
-		return false;
+		Relatorio relatorio = findById(id);
+		try {
+			manager.remove(relatorio);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 }

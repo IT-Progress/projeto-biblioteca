@@ -23,7 +23,9 @@ public class LoginBean {
 	private UsuarioDao dao;
 
 	private Usuario usuario1;
-
+	
+	private Usuario usuario2;
+ 
 	@PostConstruct
 	public void init() {
 		usuario1 = new Usuario();
@@ -40,6 +42,7 @@ public class LoginBean {
 	public String autenticar() {
 		FacesContext fc = FacesContext.getCurrentInstance();
 		usuario1 = dao.autenticacao(usuario1.getEmail(), usuario1.getSenha());
+		
 		if (usuario1 == null) {
 
 			fc.addMessage(null,

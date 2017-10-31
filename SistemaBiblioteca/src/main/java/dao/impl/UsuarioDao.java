@@ -84,5 +84,18 @@ public class UsuarioDao implements DAO<Usuario> {
 		query.setParameter("pSenha", senha);
 		return (Usuario) query.getSingleResult();
 	}
+	
+
+	public Usuario autenticacaoEmail(String email) {
+		Query query = manager.createQuery("Select u from Usuario u where u.email = :pEmail");
+		query.setParameter("pEmail", email);
+		return (Usuario) query.getSingleResult();
+	}
+	
+	public Usuario autenticacaoSenha(String senha) {
+		Query query = manager.createQuery("Select u from Usuario u where u.senha = :pSenha");
+		query.setParameter("pSenha", senha);
+		return (Usuario) query.getSingleResult();
+	}
 
 }

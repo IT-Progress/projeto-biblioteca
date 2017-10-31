@@ -169,15 +169,15 @@ public class RelatorioBean {
 		return "cadastrarUsuario";
 	}
 
-	public String remover(Usuario usuario) {
-		if (!daoUsuario.delete(usuario.getId())) {
-			adicionarMensagem("Erro ao remover o Usuário.", FacesMessage.SEVERITY_ERROR);
+	public String remover(Relatorio relatorio) {
+		if (!daoRelatorio.delete(relatorio.getId())) {
+			adicionarMensagem("Erro ao remover o Relatório.", FacesMessage.SEVERITY_ERROR);
 		} else {
 
-			adicionarMensagem("Usuário removido com sucesso.", FacesMessage.SEVERITY_INFO);
+			adicionarMensagem("Relatório removido com sucesso.", FacesMessage.SEVERITY_INFO);
 			listarUsuario();
 		}
-		return "usuario";
+		return "relatorio";
 	}
 
 	public void listarUsuario() {
