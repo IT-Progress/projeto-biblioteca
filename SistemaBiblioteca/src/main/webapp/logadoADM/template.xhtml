@@ -137,7 +137,7 @@ corTemplate {
 					<a class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
 						href="#" style="background-color: rgba(127, 8, 10, 0);"> <span
 						class="fa d-inline fa-lg fa-user-circle-o" title="Sair">
-							#{sessionScope.usuario.nome}</span>
+							#{usuarioBean.formatarTexto(sessionScope.usuario.nome)}</span>
 					</a>
 					<ul class="dropdown-menu pl-3" style="width: 10rem">
 						<li><a href="/SistemaBiblioteca" style="color: black"><i

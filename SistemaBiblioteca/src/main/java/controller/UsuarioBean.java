@@ -27,7 +27,7 @@ public class UsuarioBean {
 	private String nomeUsuarioFiltrado;
 
 	private Usuario usuario;
-	
+
 	private String acaoUsuario;
 
 	@PostConstruct
@@ -40,13 +40,9 @@ public class UsuarioBean {
 		return acaoUsuario;
 	}
 
-
-
 	public void setAcaoUsuario(String acaoUsuario) {
 		this.acaoUsuario = acaoUsuario;
 	}
-
-
 
 	private void zerarLista() {
 		list = new ArrayList<Usuario>();
@@ -94,7 +90,6 @@ public class UsuarioBean {
 		return "usuario";
 	}
 
-
 	public String editar(Usuario usuario) {
 		this.usuario = dao.findById(usuario.getId());
 		this.acaoUsuario = "Edição de";
@@ -129,4 +124,14 @@ public class UsuarioBean {
 
 	}
 
+	public String formatarTexto(String string) {
+		if (string.length() == 0)
+			return "";
+
+		if (string.length() == 1)
+			return string.toUpperCase();
+
+		return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
+	}
+	
 }

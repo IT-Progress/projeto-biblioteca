@@ -41,31 +41,31 @@ public class LivroBean {
 	private String nomeLivroFiltrada;
 
 	private Livro livro;
-	
+
 	private String nomeLivroPesquisaGeral;
 
 	private Usuario usuario;
-	
+
 	private List<Relatorio> listRelatorio;
-	
+
 	@Inject
 	private RelatorioDao daoRelatorio;
-	
+
 	private List<Usuario> listUsuario;
 
 	private String textoBotao;
-	
+
 	private String corStatus;
-	
+
 	private Part arquivoUpado;
 
 	public String getCorStatus() {
-		if(livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
+		if (livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
 			corStatus = "success";
 		} else {
 			corStatus = "danger";
 		}
-		
+
 		return corStatus;
 	}
 
@@ -80,7 +80,7 @@ public class LivroBean {
 	public void setArquivoUpado(Part arquivoUpado) {
 		this.arquivoUpado = arquivoUpado;
 	}
-	
+
 	public String getNomeArquivo() {
 		String header = arquivoUpado.getHeader("content-disposition");
 		if (header == null)
@@ -117,19 +117,18 @@ public class LivroBean {
 	}
 
 	public String getTextoBotao() {
-		if(livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
+		if (livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
 			textoBotao = "Alugar";
 		} else {
 			textoBotao = "Reservar";
 		}
-		
+
 		return textoBotao;
 	}
 
 	public void setTextoBotao(String textoBotao) {
 		this.textoBotao = textoBotao;
 	}
-
 
 	public CategoriaLivro[] getCategorias() {
 		return CategoriaLivro.values();
@@ -180,7 +179,7 @@ public class LivroBean {
 		if (!dao.save(livro)) {
 			adicionarMensagem("Erro ao cadastrar o Livro.", FacesMessage.SEVERITY_ERROR);
 		} else {
-			
+
 			adicionarMensagem("Livro salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			listarLivro();
 		}
@@ -190,26 +189,26 @@ public class LivroBean {
 	public String editar(Livro livro) {
 		this.livro = dao.findById(livro.getId());
 		return "editarLivro";
-	}		
+	}
 
 	public String visualizar(Livro livro) {
 		this.livro = dao.findById(livro.getId());
-		
+
 		if (this.livro.getArquivo() != null) {
 			escreverArquivoDiretorio(livro);
 		}
-		
+
 		return "exibirLivro";
-		
+
 	}
-	
+
 	private void escreverArquivoDiretorio(Livro livro) {
 		FacesContext fc = FacesContext.getCurrentInstance();
 		ExternalContext ec = fc.getExternalContext();
 		String absoluteWebPath = ec.getRealPath("/");
 		String destPath = absoluteWebPath + "/resources/image/" + livro.getNomeArquivo();
 		File destFile = new File(destPath);
-		
+
 		InputStream is = new ByteArrayInputStream(livro.getArquivo());
 		try {
 			FileUtils.copyInputStreamToFile(is, destFile);
@@ -233,30 +232,26 @@ public class LivroBean {
 		zerarLista();
 		if (!nomeLivroFiltrada.isEmpty()) {
 			list.addAll(dao.findByString(nomeLivroFiltrada));
-			
+
 		} else {
 			list.addAll(dao.findAll());
-			
+
 		}
 	}
-	
-	
 
 	public String pesquisar() {
 		zerarLista();
 		if (!nomeLivroPesquisaGeral.isEmpty()) {
 			list.addAll(dao.findByString(nomeLivroPesquisaGeral));
 			nomeLivroPesquisaGeral = null;
-			return "livro";	
+			return "livro";
 		} else {
 			list.addAll(dao.findAll());
 			nomeLivroPesquisaGeral = null;
 			return "livro";
 		}
-		
+
 	}
-	
-	
 
 	public String listarLivroComputacao() {
 		zerarLista();
@@ -290,48 +285,35 @@ public class LivroBean {
 
 	}
 
-	public String formatarTexto(String nomeColuna) {
-		if (nomeColuna.length() == 0)
-			return "";
-
-		if (nomeColuna.length() == 1)
-			return nomeColuna.toUpperCase();
-
-		return nomeColuna.substring(0, 1).toUpperCase() + nomeColuna.substring(1).toLowerCase();
-	}
-	
-
-	
 	public void alugar() {
 		FacesContext fc = FacesContext.getCurrentInstance();
 		ExternalContext ec = fc.getExternalContext();
 		HttpSession session = (HttpSession) ec.getSession(true);
-		Usuario usuario = (Usuario)session.getAttribute("usuario");
-		
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+
 		dao.alugar(this.livro, usuario);
 
-			adicionarMensagem("Sucesso", FacesMessage.SEVERITY_INFO);
-			listarRelatorio();
-		
-		//return "relatorio";
+		adicionarMensagem("Sucesso", FacesMessage.SEVERITY_INFO);
+		listarRelatorio();
+
+		// return "relatorio";
 	}
-	
+
 	public void listarRelatorio() {
 		zerarLista();
-		
-			listRelatorio.addAll(daoRelatorio.findAllPersonalizado());
-		
+
+		listRelatorio.addAll(daoRelatorio.findAllPersonalizado());
+
 	}
-	
+
 	public String executarBotao(SituacaoLivro situacao) {
-		if(livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {			
+		if (livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
 			alugar();
 			return "livro";
 		} else {
 			return "livro";
 		}
-		
-		
+
 	}
 
 	public Usuario getUsuario() {
@@ -361,10 +343,9 @@ public class LivroBean {
 	public void setList(List<Livro> list) {
 		this.list = list;
 	}
-	
-	
+
 	public String novoUpload() {
 		return "editarLivro";
 	}
-	
+
 }
