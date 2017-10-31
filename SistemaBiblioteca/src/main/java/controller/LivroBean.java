@@ -56,6 +56,10 @@ public class LivroBean {
 	private String textoBotao;
 
 	private String corStatus;
+	
+	private Boolean botaoDesabilitado;
+	
+	private String corBotao;
 
 	private Part arquivoUpado;
 
@@ -71,6 +75,34 @@ public class LivroBean {
 
 	public void setCorStatus(String corStatus) {
 		this.corStatus = corStatus;
+	}
+	
+	public String getTextoBotao() {
+		if (livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
+			textoBotao = "Alugar";
+		} else {
+			textoBotao = "Indisponível";
+		}
+
+		return textoBotao;
+	}
+
+	public Boolean getBotaoDesabilitado() {
+		if (livro.getSituacao() == SituacaoLivro.INDISPONÍVEL) {
+			this.botaoDesabilitado = true;
+		} else {
+			this.botaoDesabilitado = false;
+		}	
+		
+		return botaoDesabilitado;
+	}
+
+	public void setBotaoDesabilitado(Boolean botaoDesabilitado) {
+		this.botaoDesabilitado = botaoDesabilitado;
+	}
+
+	public void setTextoBotao(String textoBotao) {
+		this.textoBotao = textoBotao;
 	}
 
 	public Part getArquivoUpado() {
@@ -114,20 +146,6 @@ public class LivroBean {
 
 	public void setNomeLivroPesquisaGeral(String nomeLivroPesquisaGeral) {
 		this.nomeLivroPesquisaGeral = nomeLivroPesquisaGeral;
-	}
-
-	public String getTextoBotao() {
-		if (livro.getSituacao() == SituacaoLivro.DISPONÍVEL) {
-			textoBotao = "Alugar";
-		} else {
-			textoBotao = "Reservar";
-		}
-
-		return textoBotao;
-	}
-
-	public void setTextoBotao(String textoBotao) {
-		this.textoBotao = textoBotao;
 	}
 
 	public CategoriaLivro[] getCategorias() {

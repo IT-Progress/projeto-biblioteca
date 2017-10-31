@@ -29,7 +29,7 @@
 						<h:outputText value = "#{livroBean.livro.categoria.categoria}" style="font-size: 1.5rem; display:flex"/>
 						<h:outputText value = "#{livroBean.livro.situacao.situacaoLivros}" style="font-size: 1.75rem; display:flex" styleClass="text-#{livroBean.corStatus} mt-5 mb-2"/>
 						<h5 class="mb-5">Estará disponível em 02/11/2017</h5>
-						<h:commandButton styleClass="btn btn-#{livroBean.corStatus} px-4 mr-1" value="#{livroBean.textoBotao}" action="#{livroBean.executarBotao(livroBean.livro.situacao)}" ></h:commandButton>
+						<h:commandButton styleClass="btn btn-#{livroBean.corStatus} px-4 mr-1" value="#{livroBean.textoBotao}" action="#{livroBean.executarBotao(livroBean.livro.situacao)}" disabled="#{livroBean.botaoDesabilitado}"></h:commandButton>
 						<h:commandButton class="btn btn-dark px-4" action="livro" value="Voltar"></h:commandButton>
 					</div>
 				</div>
