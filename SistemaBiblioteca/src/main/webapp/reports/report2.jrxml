@@ -181,9 +181,9 @@
 	<title>
 		<band height="132" splitType="Stretch">
 			<staticText>
-				<reportElement x="110" y="43" width="344" height="45" forecolor="#606060" uuid="03bfae4b-9099-467a-9790-b998023b51f6"/>
+				<reportElement x="68" y="38" width="427" height="45" forecolor="#606060" uuid="03bfae4b-9099-467a-9790-b998023b51f6"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Electrolize" size="32"/>
+					<font fontName="Verdana" size="32"/>
 				</textElement>
 				<text><![CDATA[Biblioteca Empresarial]]></text>
 			</staticText>
