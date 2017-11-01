@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="fb91f8ed-d72e-49af-b87a-32d22bde22eb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="dataDeDevolucao" class="java.util.Date"/>
+	<field name="dataDeEmprestimo" class="java.util.Date"/>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="livro" class="java.lang.String"/>
+	<field name="id" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="211" height="79" uuid="81c71b57-3400-41bd-a740-86cfba7386fc"/>
+				<imageExpression><![CDATA["D:\\estudo\\DB1 Start 2017\\projeto biblioteca\\assets\\db1Logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="211" y="24" width="344" height="55" forecolor="#606060" uuid="95a4e411-3a45-413e-9731-6d422140c650"/>
+				<textElement>
+					<font fontName="Electrolize" size="32"/>
+				</textElement>
+				<text><![CDATA[Biblioteca Empresarial]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="50">
+			<rectangle>
+				<reportElement x="-23" y="0" width="605" height="50" forecolor="#FFFFFF" backcolor="#7F080A" uuid="0cb456ca-9b36-423d-b926-9fcd30660b03"/>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="55" height="50" forecolor="#FFFFFF" uuid="bfda9c3f-c976-4dd5-b474-ac8e944c39b1"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lato" size="14"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="55" y="0" width="140" height="50" forecolor="#FFFFFF" uuid="bb8ea889-350b-4922-9a52-1b7ffa30b6f0"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lato" size="14"/>
+				</textElement>
+				<text><![CDATA[Livro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="195" y="0" width="130" height="50" forecolor="#FFFFFF" uuid="2130502e-b2b3-4cdc-964c-c213c7514b7d"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lato" size="14"/>
+				</textElement>
+				<text><![CDATA[Usuário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="325" y="0" width="115" height="50" forecolor="#FFFFFF" uuid="db3cde26-eac9-4b01-8766-50a1c8a947e3"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lato" size="12"/>
+				</textElement>
+				<text><![CDATA[Data de Empréstimo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="445" y="0" width="110" height="50" forecolor="#FFFFFF" backcolor="#990066" uuid="977bc068-79da-4fd5-904d-5bdb566ba727"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lato" size="12"/>
+				</textElement>
+				<text><![CDATA[Data de Devolução]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="55" height="20" uuid="98e56a5f-7174-4e20-91ba-a4f06fbcc60e"/>
+				<box topPadding="3" leftPadding="2" bottomPadding="3">
+					<pen lineWidth="0.0" lineColor="#969696"/>
+					<topPen lineWidth="0.0" lineColor="#969696"/>
+					<leftPen lineWidth="0.0" lineColor="#969696"/>
+					<bottomPen lineWidth="0.0" lineColor="#969696"/>
+					<rightPen lineWidth="0.0" lineColor="#969696"/>
+				</box>
+				<textElement>
+					<font fontName="Lato"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="0" width="140" height="20" uuid="cad64da9-3918-4cb2-8268-64b86d52469b"/>
+				<box topPadding="3" leftPadding="2" bottomPadding="3">
+					<pen lineWidth="0.0" lineColor="#969696"/>
+					<topPen lineWidth="0.0" lineColor="#969696"/>
+					<leftPen lineWidth="0.0" lineColor="#969696"/>
+					<bottomPen lineWidth="0.0" lineColor="#969696"/>
+					<rightPen lineWidth="0.0" lineColor="#969696"/>
+				</box>
+				<textElement>
+					<font fontName="Lato"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{livro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="0" width="130" height="20" uuid="454d8ae7-21e6-470b-8e8d-1e50c88e7eee"/>
+				<box topPadding="3" leftPadding="2" bottomPadding="3">
+					<pen lineWidth="0.0" lineColor="#969696"/>
+					<topPen lineWidth="0.0" lineColor="#969696"/>
+					<leftPen lineWidth="0.0" lineColor="#969696"/>
+					<bottomPen lineWidth="0.0" lineColor="#969696"/>
+					<rightPen lineWidth="0.0" lineColor="#969696"/>
+				</box>
+				<textElement>
+					<font fontName="Lato"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="445" y="0" width="110" height="20" uuid="1c9d8c35-fea8-4b28-acac-dfceaef8ea30"/>
+				<box topPadding="3" leftPadding="2" bottomPadding="3">
+					<pen lineWidth="0.0" lineColor="#969696"/>
+					<topPen lineWidth="0.0" lineColor="#969696"/>
+					<leftPen lineWidth="0.0" lineColor="#969696"/>
+					<bottomPen lineWidth="0.0" lineColor="#969696"/>
+					<rightPen lineWidth="0.0" lineColor="#969696"/>
+				</box>
+				<textElement>
+					<font fontName="Lato"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataDeDevolucao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="325" y="0" width="120" height="20" uuid="90892dfd-4e63-4df1-9ab3-9fb92d6fe498"/>
+				<box topPadding="3" leftPadding="2" bottomPadding="3">
+					<pen lineWidth="0.0" lineColor="#969696"/>
+					<topPen lineWidth="0.0" lineColor="#969696"/>
+					<leftPen lineWidth="0.0" lineColor="#969696"/>
+					<bottomPen lineWidth="0.0" lineColor="#969696"/>
+					<rightPen lineWidth="0.0" lineColor="#969696"/>
+				</box>
+				<textElement>
+					<font fontName="Lato"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataDeEmprestimo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="22" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-23" y="32" width="605" height="22" forecolor="#FFFFFF" backcolor="#7F080A" uuid="4cf4048a-2c53-4ec8-b27a-b31e8b37ae27"/>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="34" width="100" height="20" forecolor="#FFFFFF" uuid="56ae8f34-254b-44c1-9ffd-9c3229c5446d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lato"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="34" width="85" height="20" forecolor="#FFFFFF" uuid="723c2924-f939-47ca-9cc2-c6946e9bafec"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Lato"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="530" y="34" width="38" height="20" forecolor="#FFFFFF" uuid="c1ba1c2c-32aa-4790-9abb-8cab7202dbc0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Lato"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

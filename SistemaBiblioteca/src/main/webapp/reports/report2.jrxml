@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3f5ce4fd-4e92-4e8a-9701-a223d7816f12">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<field name="id" class="java.lang.Long"/>
+	<field name="livro" class="java.lang.String"/>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="dataDeEmprestimo" class="java.util.Date"/>
+	<field name="dataDeDevolucao" class="java.util.Date"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement mode="Opaque" x="0" y="0" width="556" height="37" forecolor="#B89F7D" backcolor="#7F080A" uuid="1895ff6b-29cf-4e76-b262-d498d1180be6"/>
+				</frame>
+				<staticText>
+					<reportElement mode="Transparent" x="38" y="0" width="158" height="37" forecolor="#FFFFFF" uuid="3ceba1c7-f0fd-4542-896d-61437e8ba3b2"/>
+					<box leftPadding="2">
+						<pen lineWidth="0.25" lineColor="#63080A"/>
+						<topPen lineWidth="0.25" lineColor="#63080A"/>
+						<leftPen lineWidth="0.25" lineColor="#63080A"/>
+						<bottomPen lineWidth="0.25" lineColor="#63080A"/>
+						<rightPen lineWidth="0.25" lineColor="#63080A"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Livro]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="326" y="0" width="120" height="37" forecolor="#FFFFFF" uuid="7d1481c6-a736-4c5d-b873-a8b508d64153"/>
+					<box leftPadding="2">
+						<pen lineWidth="0.25" lineColor="#63080A"/>
+						<topPen lineWidth="0.25" lineColor="#63080A"/>
+						<leftPen lineWidth="0.25" lineColor="#63080A"/>
+						<bottomPen lineWidth="0.25" lineColor="#63080A"/>
+						<rightPen lineWidth="0.25" lineColor="#63080A"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data de Empréstimo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="196" y="0" width="130" height="37" forecolor="#FFFFFF" uuid="b767a0de-a137-4c0a-82bd-7ee9da04b407"/>
+					<box leftPadding="2">
+						<pen lineWidth="0.25" lineColor="#63080A"/>
+						<topPen lineWidth="0.25" lineColor="#63080A"/>
+						<leftPen lineWidth="0.25" lineColor="#63080A"/>
+						<bottomPen lineWidth="0.25" lineColor="#63080A"/>
+						<rightPen lineWidth="0.25" lineColor="#63080A"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Usuário]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="0" width="38" height="37" forecolor="#FFFFFF" uuid="12d78eb5-cb10-4e79-bf81-8d6c6da54576"/>
+					<box leftPadding="2">
+						<pen lineWidth="0.25" lineColor="#63080A"/>
+						<topPen lineWidth="0.25" lineColor="#63080A"/>
+						<leftPen lineWidth="0.25" lineColor="#63080A"/>
+						<bottomPen lineWidth="0.25" lineColor="#63080A"/>
+						<rightPen lineWidth="0.25" lineColor="#63080A"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="446" y="0" width="110" height="37" forecolor="#FFFFFF" backcolor="#990066" uuid="04138b24-3f0a-4058-94a2-06fe5a6bdd7d"/>
+					<box leftPadding="2">
+						<pen lineWidth="0.25" lineColor="#63080A"/>
+						<topPen lineWidth="0.25" lineColor="#63080A"/>
+						<leftPen lineWidth="0.25" lineColor="#63080A"/>
+						<bottomPen lineWidth="0.25" lineColor="#63080A"/>
+						<rightPen lineWidth="0.25" lineColor="#63080A"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data de Devolução]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT})]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="446" y="0" width="110" height="50" uuid="603ffcad-dff5-45d4-8bae-9820d93b3b78"/>
+					<box topPadding="3" leftPadding="2" bottomPadding="3">
+						<pen lineWidth="0.25" lineColor="#969696"/>
+						<topPen lineWidth="0.25" lineColor="#969696"/>
+						<leftPen lineWidth="0.25" lineColor="#969696"/>
+						<bottomPen lineWidth="0.25" lineColor="#969696"/>
+						<rightPen lineWidth="0.25" lineColor="#969696"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dataDeDevolucao}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="0" width="38" height="50" uuid="1579854d-794f-4273-9051-94815bde0135"/>
+					<box topPadding="3" leftPadding="2" bottomPadding="3">
+						<pen lineWidth="0.25" lineColor="#969696"/>
+						<topPen lineWidth="0.25" lineColor="#969696"/>
+						<leftPen lineWidth="0.25" lineColor="#969696"/>
+						<bottomPen lineWidth="0.25" lineColor="#969696"/>
+						<rightPen lineWidth="0.25" lineColor="#969696"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="38" y="0" width="158" height="50" uuid="ae8bab49-e3d9-4ee7-8627-3db9dfcb4a3e"/>
+					<box topPadding="3" leftPadding="2" bottomPadding="3">
+						<pen lineWidth="0.25" lineColor="#969696"/>
+						<topPen lineWidth="0.25" lineColor="#969696"/>
+						<leftPen lineWidth="0.25" lineColor="#969696"/>
+						<bottomPen lineWidth="0.25" lineColor="#969696"/>
+						<rightPen lineWidth="0.25" lineColor="#969696"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{livro}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="326" y="0" width="120" height="50" uuid="fb8aea24-ac2c-4ead-a2d3-882771a2c1fa"/>
+					<box topPadding="3" leftPadding="2" bottomPadding="3">
+						<pen lineWidth="0.25" lineColor="#969696"/>
+						<topPen lineWidth="0.25" lineColor="#969696"/>
+						<leftPen lineWidth="0.25" lineColor="#969696"/>
+						<bottomPen lineWidth="0.25" lineColor="#969696"/>
+						<rightPen lineWidth="0.25" lineColor="#969696"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dataDeEmprestimo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="196" y="0" width="130" height="50" uuid="1b9380fc-a95b-4970-b844-04ef20ce2863"/>
+					<box topPadding="3" leftPadding="2" bottomPadding="3">
+						<pen lineWidth="0.25" lineColor="#969696"/>
+						<topPen lineWidth="0.25" lineColor="#969696"/>
+						<leftPen lineWidth="0.25" lineColor="#969696"/>
+						<bottomPen lineWidth="0.25" lineColor="#969696"/>
+						<rightPen lineWidth="0.25" lineColor="#969696"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{usuario}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<staticText>
+				<reportElement x="211" y="87" width="344" height="45" forecolor="#606060" uuid="03bfae4b-9099-467a-9790-b998023b51f6"/>
+				<textElement>
+					<font fontName="Electrolize" size="32"/>
+				</textElement>
+				<text><![CDATA[Biblioteca Empresarial]]></text>
+			</staticText>
+			<image>
+				<reportElement x="2" y="-4" width="255" height="91" uuid="8846f0ae-8aaf-4bea-b4b6-7a959179a845"/>
+				<imageExpression><![CDATA["D:\\estudo\\DB1 Start 2017\\projeto biblioteca\\projeto-biblioteca\\SistemaBiblioteca\\src\\main\\webapp\\resources\\image\\db1Logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="553" height="26" uuid="f04652ed-0017-48af-8fa5-93697fd14734"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Empréstimos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#7F080A" uuid="e9d21b77-6561-432e-9901-168ed7dd43c7"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="fb6810fb-385d-4879-b3a9-de44374bae7c"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="a5c6987c-d82b-45aa-8a55-d08990703c5b"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="9dc082b5-4e28-4fb7-948c-cbe387703733"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

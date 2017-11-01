@@ -215,7 +215,7 @@ public class RelatorioBean {
 	public void imprimirRelatorio() throws JRException, IOException {
 		// compilacao do JRXML
 		FacesContext context = FacesContext.getCurrentInstance();
-	    String caminho = context.getExternalContext().getRealPath("reports/relatorio.jrxml");
+	    String caminho = context.getExternalContext().getRealPath("reports/report2.jrxml");
 	    
 		if (new File(caminho).exists() == false) {
 			return;
