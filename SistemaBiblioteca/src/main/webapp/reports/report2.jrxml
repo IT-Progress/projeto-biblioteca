@@ -181,16 +181,12 @@
 	<title>
 		<band height="132" splitType="Stretch">
 			<staticText>
-				<reportElement x="211" y="87" width="344" height="45" forecolor="#606060" uuid="03bfae4b-9099-467a-9790-b998023b51f6"/>
-				<textElement>
+				<reportElement x="110" y="43" width="344" height="45" forecolor="#606060" uuid="03bfae4b-9099-467a-9790-b998023b51f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Electrolize" size="32"/>
 				</textElement>
 				<text><![CDATA[Biblioteca Empresarial]]></text>
 			</staticText>
-			<image>
-				<reportElement x="2" y="-4" width="255" height="91" uuid="8846f0ae-8aaf-4bea-b4b6-7a959179a845"/>
-				<imageExpression><![CDATA["D:\\estudo\\DB1 Start 2017\\projeto biblioteca\\projeto-biblioteca\\SistemaBiblioteca\\src\\main\\webapp\\resources\\image\\db1Logo.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>
